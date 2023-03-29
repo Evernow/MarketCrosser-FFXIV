@@ -29,7 +29,7 @@ world_IDs = {73: 'Adamantoise', 79: 'Cactuar', 54: 'Faerie', 63: 'Gilgamesh', 40
 if os.name == 'nt':
     parent_directory = r"C:\Users\Daniel\Desktop\FTPTest"
 else:
-    parent_directory = ""
+    parent_directory = "JobInProgress"
 def minprice(item,quality):
     # Returns lowest price the item is selling at and its respective server
     returndict = {}
