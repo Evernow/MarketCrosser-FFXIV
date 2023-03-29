@@ -22,7 +22,7 @@ jobs:
       - name: setup python
         uses: actions/setup-python@v3
         with:
-          python-version: '3.11'
+          python-version: '3.10'
 
       - name: install python packages
         run: |
@@ -35,8 +35,8 @@ jobs:
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: |
-          python connecttoftp.py
-          python makinggil_github.py
+          python3 connecttoftp.py
+          python3 makinggil_github.py
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
