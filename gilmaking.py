@@ -114,13 +114,13 @@ if __name__ == '__main__':
             if item is None:
                 break
             modified_data.update(item)
-        res = multiprocessingdict | modified_data
-        with open("CurrentData.json", "w") as outfile:
-            json.dump(res, outfile, indent = 4)
-        files = glob.glob('JobInProgress')
-        for f in files:
-            if 'dummyfiledonotremove.txt' not in f:
-                os.remove(f)
+        multiprocessingdict = multiprocessingdict | modified_data
+    with open("CurrentData.json", "w") as outfile:
+        json.dump(res, outfile, indent = 4)
+    files = glob.glob('JobInProgress')
+    for f in files:
+        if 'dummyfiledonotremove.txt' not in f:
+            os.remove(f)
     print(res)
 
 
