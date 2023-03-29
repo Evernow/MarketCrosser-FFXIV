@@ -9,7 +9,7 @@ import traceback
 import multiprocessing
 import time
 import tarfile
-parent_directory = r""
+parent_directory = r"JobInProgress"
 # Download files from VPS FTP server
 start = datetime.now()
 ftp = FTP('65.108.202.158')

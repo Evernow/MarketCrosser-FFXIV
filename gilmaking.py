@@ -115,6 +115,11 @@ if __name__ == '__main__':
                 break
             modified_data.update(item)
         res = multiprocessingdict | modified_data
+        with open("CurrentData.json", "w") as outfile:
+            json.dump(res, outfile, indent = 4)
+        files = glob.glob('JobInProgress')
+        for f in files:
+            os.remove(f)
     print(res)
 
 
