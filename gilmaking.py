@@ -93,7 +93,7 @@ if __name__ == '__main__':
     multiprocessingdict = {}
     print('Started')
     print('Initialized initial dict')
-    for item in chunker(all_marketable_items, 200):
+    for item in chunker(all_marketable_items, 100):
         jobs = []
         for i in item:
             try:
@@ -115,13 +115,13 @@ if __name__ == '__main__':
                 break
             modified_data.update(item)
         multiprocessingdict = multiprocessingdict | modified_data
-    with open("CurrentData.json", "w") as outfile:
-        json.dump(res, outfile, indent = 4)
+    with open("CurrentData.json", "w+") as outfile:
+        json.dump(multiprocessingdict, outfile, indent = 4)
     files = glob.glob('JobInProgress')
     for f in files:
         if 'dummyfiledonotremove.txt' not in f:
             os.remove(f)
-    print(res)
+    print(multiprocessingdict)
 
 
 
