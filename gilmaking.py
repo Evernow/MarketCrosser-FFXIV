@@ -30,8 +30,9 @@ if os.name == 'nt':
     parent_directory = r"C:\Users\Daniel\Desktop\FTPTest"
 else:
     parent_directory = ""
-def minprice(item,quality,multiprocessingdict):
+def minprice(item,quality):
     # Returns lowest price the item is selling at and its respective server
+    returndict = {}
     lowest_price = None
     lowest_price_server = None
     with open(os.path.join(parent_directory,f"GetCurrentSaleListings_{item}.json")) as json_file:
@@ -44,33 +45,31 @@ def minprice(item,quality,multiprocessingdict):
             elif listing['pricePerUnit'] < lowest_price:
                     lowest_price = listing['pricePerUnit']
                     lowest_price_server = listing['worldName']
-
-    multiprocessingdict[str((item,quality))]['LowestPrice'] = lowest_price
-    multiprocessingdict[str((item,quality))]['LowestPriceServer'] = lowest_price_server
-    return
+    return lowest_price, lowest_price_server
     # if lowest_price_server == None:
     #     return None
     # return lowest_price,lowest_price_server
     
-def AverageSalePrice(item,quality,multiprocessingdict):
-    # Returns average sales price and average quantiy sold in a sale in the last 48 hours
+def AverageSalePrice(item,quality,q):
+    # Returns average sales price and average quantiy sold in a sale in the last 4 days
     list_of_sales_price = []
     list_of_sales_quantity = []
     with open(os.path.join(parent_directory,f"GetNumberOfSales_{item}.json")) as json_file:
         HistoryOfSalesData = json.load(json_file)[str(item)]['entries']
-
     for sale in HistoryOfSalesData:
-        if sale['worldID'] == 57 and ((time.time()-sale['timestamp'])< 172800) and sale['hq'] == quality:
+        if sale['worldID'] == 57 and ((time.time()-sale['timestamp'])< 345600) and sale['hq'] == quality:
             list_of_sales_quantity.append(sale['quantity'])
             list_of_sales_price.append(sale['pricePerUnit'])
     if len(list_of_sales_price) == 0:
-        return None
-    print(mean(list_of_sales_price))
-    print(multiprocessingdict[str((item,quality))])
-    multiprocessingdict[str((item,quality))]['AveragePriceSiren'] = mean(list_of_sales_price)
-    multiprocessingdict[str((item,quality))]['AverageQuantitySiren'] = mean(list_of_sales_quantity)
-    print(multiprocessingdict[str((item,quality))]['AveragePriceSiren'])
-    # return(mean(list_of_sales_price), mean(list_of_sales_quantity))
+        data = {str((item,quality)): {'AveragePriceSiren': None, 'AverageQuantitySiren': None, 'LowestPrice': None, 'LowestPriceServer': None}}
+        for key, value in data.items():
+            q.put({key: value})
+    else:
+        minpricedata = minprice(item,quality)
+        data = {str((item,quality)): {'AveragePriceSiren': mean(list_of_sales_price), 'AverageQuantitySiren': mean(list_of_sales_quantity)
+                                        , 'LowestPrice': minpricedata[0], 'LowestPriceServer': minpricedata[1]}}
+        for key, value in data.items():
+            q.put({key: value})
     return
 
 def chunker(seq, size):
@@ -89,59 +88,38 @@ def GetAllMarketableItems():
 
 
 if __name__ == '__main__':
-
-    # ob = cProfile.Profile()
-    # ob.enable()
-
-
-    # Gets all items that can be sold in a list
-
-    all_marketable_items = GetAllMarketableItems()
-    multiprocessingdict = multiprocessing.Manager().dict()
+    all_marketable_items = GetAllMarketableItems()#[:100] # Slice is for testing
+    q = multiprocessing.Queue()
+    multiprocessingdict = {}
     print('Started')
-    for item in all_marketable_items:
-        multiprocessingdict[str((item,False))] = {}
-        multiprocessingdict[str((item,True))] = {}
-        break
     print('Initialized initial dict')
-    for item in chunker(all_marketable_items, 1):
+    for item in chunker(all_marketable_items, 200):
         jobs = []
         for i in item:
             try:
-                # Average sale price of low quality
-                p = multiprocessing.Process(target=AverageSalePrice, args=(i,False,multiprocessingdict,))
+                p = multiprocessing.Process(target=AverageSalePrice, args=(i,False,q,))
                 jobs.append(p)
                 p.start()
-                 # Average sale price of high quality
-                p2 = multiprocessing.Process(target=AverageSalePrice, args=(i,True,multiprocessingdict))
-                jobs.append(p2)
-                p2.start()
-                 # Lowest sale price of low quality
-                p3 = multiprocessing.Process(target=minprice, args=(i,False,multiprocessingdict))
-                jobs.append(p3)
-                p3.start()
-                 # Highest sale price of high quality
-                p4 = multiprocessing.Process(target=minprice, args=(i,True,multiprocessingdict))
-                jobs.append(p4)
-                p4.start()
             except:
                 print("Couldn't process item " + str(i))   
                 print(traceback.format_exc())
         while len(jobs) > 0:
             jobs = [job for job in jobs if job.is_alive()]
-        break
         print('Finished a batch of jobs')
         print(f'{item[0]} to {item[-1]}')
-    print(multiprocessingdict)
+        q.put(None) # This cost me an hour of my life to figure out, if you don't send it a None it'll keep waiting for all eternity.
+        modified_data = {}
+        while True:
+            item = q.get()
+            if item is None:
+                break
+            modified_data.update(item)
+        res = multiprocessingdict | modified_data
+    print(res)
 
 
 
-    # ob.disable()
-    # sec = io.StringIO()
-    # sortby = SortKey.CUMULATIVE
-    # ps = pstats.Stats(ob, stream=sec).sort_stats(sortby)
-    # ps.print_stats()
-    # print(sec.getvalue())
+
 
 
 
