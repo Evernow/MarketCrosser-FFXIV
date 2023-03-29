@@ -119,7 +119,8 @@ if __name__ == '__main__':
             json.dump(res, outfile, indent = 4)
         files = glob.glob('JobInProgress')
         for f in files:
-            os.remove(f)
+            if 'dummyfiledonotremove.txt' not in f:
+                os.remove(f)
     print(res)
 
 
