@@ -88,7 +88,7 @@ def GetAllMarketableItems():
 
 
 if __name__ == '__main__':
-    all_marketable_items = GetAllMarketableItems()#[:100] # Slice is for testing
+    all_marketable_items = GetAllMarketableItems()[:100] # Slice is for testing
     q = multiprocessing.Queue()
     multiprocessingdict = {}
     print('Started')
