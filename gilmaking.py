@@ -59,12 +59,21 @@ def AverageSalePrice(item,quality,q):
     # Returns average sales price and average quantiy sold in a sale in the last 4 days
     list_of_sales_price = []
     list_of_sales_quantity = []
+    sales_in_last_day = 0
+    sales_in_last_week = 0
+    sales_in_last_month = 0 
     with open(os.path.join(parent_directory,f"GetNumberOfSales_{item}.json")) as json_file:
         HistoryOfSalesData = json.load(json_file)[str(item)]['entries']
     for sale in HistoryOfSalesData:
         if sale['worldID'] == 57  and sale['hq'] == quality: #and ((time.time()-sale['timestamp'])< 345600):
             list_of_sales_quantity.append(sale['quantity'])
             list_of_sales_price.append(sale['pricePerUnit']) 
+            if (time.time() - sale['timestamp']) < 86400:
+                sales_in_last_day += 1
+            if (time.time() - sale['timestamp']) < 604800:
+                sales_in_last_week += 1
+            if (time.time() - sale['timestamp']) < 2628288:
+                sales_in_last_month += 1
     if len(list_of_sales_price) > 0:
         mean_list_price = mean(list_of_sales_price)
         mean_list_quantity = mean(list_of_sales_quantity)
@@ -73,7 +82,9 @@ def AverageSalePrice(item,quality,q):
         mean_list_quantity = None
     minpricedata = minprice(item,quality)
     q[str((item,quality))] =  {'AveragePriceSiren': mean_list_price, 'AverageQuantitySiren': mean_list_quantity, 'CurrentPriceSiren' : minpricedata[2],
-                                'LowestPrice': minpricedata[0], 'LowestPriceServer': minpricedata[1]}
+                                'LowestPrice': minpricedata[0], 'LowestPriceServer': minpricedata[1],
+                                'SalesInLast24Hours': sales_in_last_day, 'SalesInLastWeek': sales_in_last_week,
+                                'SalesInLastMonth': sales_in_last_month}
     return
 
 def chunker(seq, size):
