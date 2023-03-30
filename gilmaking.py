@@ -124,7 +124,7 @@ if __name__ == '__main__':
     multiprocessingdict = dict(multiprocessingdict)
     with open("CurrentData.json", "w+") as outfile:
         json.dump(multiprocessingdict, outfile, indent = 4)
-    files = glob.glob('JobInProgress')
+    files = glob.glob('JobInProgress/')
     for f in files:
         # If a directory is completely empty github removes it, so we have a dummy file in it always
         if 'dummyfiledonotremove.txt' not in f:
