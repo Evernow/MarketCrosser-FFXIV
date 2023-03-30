@@ -36,7 +36,7 @@ jobs:
           EMAIL_RECIPIENT: ${{ secrets.EMAIL_RECIPIENT }}
         run: |
           python3 connecttoftp.py
-          python3 makinggil_github.py
+          python3 gilmaking.py
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
