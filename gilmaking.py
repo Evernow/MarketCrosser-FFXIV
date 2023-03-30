@@ -26,15 +26,16 @@ world_IDs = {73: 'Adamantoise', 79: 'Cactuar', 54: 'Faerie', 63: 'Gilgamesh', 40
             34: 'Brynhildr', 37: 'Mateus', 41: 'Zalera', 62: 'Diabolos', 74: 'Coeurl', 75: 'Malboro', 81: 'Goblin', 91: 'Balmung', 
             35: 'Famfrit', 53: 'Exodus', 55: 'Lamia', 64: 'Leviathan', 77: 'Ultros', 78: 'Behemoth', 93: 'Excalibur', 95: 'Hyperion', 
             404: 'Marilith', 405: 'Seraph', 406: 'Halicarnassus', 407: 'Maduin'}
-if os.name == 'nt':
-    parent_directory = r"C:\Users\Daniel\Desktop\FTPTest"
-else:
-    parent_directory = "JobInProgress"
+# if os.name == 'nt':
+#     parent_directory = r"C:\Users\Daniel\Desktop\FTPTest"
+# else:
+parent_directory = "JobInProgress"
 def minprice(item,quality):
     # Returns lowest price the item is selling at and its respective server
     returndict = {}
     lowest_price = None
     lowest_price_server = None
+    current_siren_price = sys.maxsize-1
     with open(os.path.join(parent_directory,f"GetCurrentSaleListings_{item}.json")) as json_file:
         CurrentSalesData = json.load(json_file)[str(item)]['listings']
     for listing in CurrentSalesData:
@@ -45,7 +46,9 @@ def minprice(item,quality):
             elif listing['pricePerUnit'] < lowest_price:
                     lowest_price = listing['pricePerUnit']
                     lowest_price_server = listing['worldName']
-    return lowest_price, lowest_price_server
+            if (listing['worldID'] == 57) and (listing['pricePerUnit'] < current_siren_price):
+                current_siren_price = listing['pricePerUnit']
+    return lowest_price, lowest_price_server, current_siren_price
     # if lowest_price_server == None:
     #     return None
     # return lowest_price,lowest_price_server
@@ -57,19 +60,18 @@ def AverageSalePrice(item,quality,q):
     with open(os.path.join(parent_directory,f"GetNumberOfSales_{item}.json")) as json_file:
         HistoryOfSalesData = json.load(json_file)[str(item)]['entries']
     for sale in HistoryOfSalesData:
-        if sale['worldID'] == 57 and ((time.time()-sale['timestamp'])< 345600) and sale['hq'] == quality:
+        if sale['worldID'] == 57  and sale['hq'] == quality: #and ((time.time()-sale['timestamp'])< 345600):
             list_of_sales_quantity.append(sale['quantity'])
-            list_of_sales_price.append(sale['pricePerUnit'])
-    if len(list_of_sales_price) == 0:
-        data = {str((item,quality)): {'AveragePriceSiren': None, 'AverageQuantitySiren': None, 'LowestPrice': None, 'LowestPriceServer': None}}
-        for key, value in data.items():
-            q.put({key: value})
+            list_of_sales_price.append(sale['pricePerUnit']) 
+    if len(list_of_sales_price) > 0:
+        mean_list_price = mean(list_of_sales_price)
+        mean_list_quantity = mean(list_of_sales_quantity)
     else:
-        minpricedata = minprice(item,quality)
-        data = {str((item,quality)): {'AveragePriceSiren': mean(list_of_sales_price), 'AverageQuantitySiren': mean(list_of_sales_quantity)
-                                        , 'LowestPrice': minpricedata[0], 'LowestPriceServer': minpricedata[1]}}
-        for key, value in data.items():
-            q.put({key: value})
+        mean_list_price = None
+        mean_list_quantity = None
+    minpricedata = minprice(item,quality)
+    q[str((item,quality))] =  {'AveragePriceSiren': mean_list_price, 'AverageQuantitySiren': mean_list_quantity, 'CurrentPriceSiren' : minpricedata[2],
+                                'LowestPrice': minpricedata[0], 'LowestPriceServer': minpricedata[1]}
     return
 
 def chunker(seq, size):
@@ -88,18 +90,22 @@ def GetAllMarketableItems():
 
 
 if __name__ == '__main__':
-    all_marketable_items = GetAllMarketableItems()[:100] # Slice is for testing
-    q = multiprocessing.Queue()
-    multiprocessingdict = {}
+    all_marketable_items = GetAllMarketableItems()#[:10] # Slice is for testing
+    q = multiprocessing.Manager()
+
+    multiprocessingdict = q.dict()
     print('Started')
     print('Initialized initial dict')
-    for item in chunker(all_marketable_items, 100):
+    for item in chunker(all_marketable_items, 50):
         jobs = []
         for i in item:
             try:
-                p = multiprocessing.Process(target=AverageSalePrice, args=(i,False,q,))
+                p = multiprocessing.Process(target=AverageSalePrice, args=(i,False,multiprocessingdict,))
                 jobs.append(p)
                 p.start()
+                p2 = multiprocessing.Process(target=AverageSalePrice, args=(i,True,multiprocessingdict,))
+                jobs.append(p2)
+                p2.start()
             except:
                 print("Couldn't process item " + str(i))   
                 print(traceback.format_exc())
@@ -107,21 +113,23 @@ if __name__ == '__main__':
             jobs = [job for job in jobs if job.is_alive()]
         print('Finished a batch of jobs')
         print(f'{item[0]} to {item[-1]}')
-        q.put(None) # This cost me an hour of my life to figure out, if you don't send it a None it'll keep waiting for all eternity.
-        modified_data = {}
-        while True:
-            item = q.get()
-            if item is None:
-                break
-            modified_data.update(item)
-        multiprocessingdict = multiprocessingdict | modified_data
+        # q.put(None) # This cost me an hour of my life to figure out, if you don't send it a None it'll keep waiting for all eternity.
+        # modified_data = {}
+        # while True:
+        #     item = q.get()
+        #     if item is None:
+        #         break
+        #     modified_data.update(item)
+        # multiprocessingdict = multiprocessingdict | modified_data
+    multiprocessingdict = dict(multiprocessingdict)
     with open("CurrentData.json", "w+") as outfile:
         json.dump(multiprocessingdict, outfile, indent = 4)
     files = glob.glob('JobInProgress')
     for f in files:
+        # If a directory is completely empty github removes it, so we have a dummy file in it always
         if 'dummyfiledonotremove.txt' not in f:
             os.remove(f)
-    print(multiprocessingdict)
+    # print(multiprocessingdict)
 
 
 
