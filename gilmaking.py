@@ -46,8 +46,9 @@ def minprice(item,quality):
             elif listing['pricePerUnit'] < lowest_price:
                     lowest_price = listing['pricePerUnit']
                     lowest_price_server = listing['worldName']
-            if current_siren_price == None or ((listing['worldID'] == 57) and (listing['pricePerUnit'] < current_siren_price)):
-                current_siren_price = listing['pricePerUnit']
+            if (current_siren_price == None) or (listing['pricePerUnit'] < current_siren_price):
+                if listing['worldID'] == 57:
+                    current_siren_price = listing['pricePerUnit']
     return lowest_price, lowest_price_server, current_siren_price
     # if lowest_price_server == None:
     #     return None
