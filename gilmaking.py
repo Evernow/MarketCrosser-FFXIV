@@ -35,7 +35,7 @@ def minprice(item,quality):
     returndict = {}
     lowest_price = None
     lowest_price_server = None
-    current_siren_price = sys.maxsize-1
+    current_siren_price = None
     with open(os.path.join(parent_directory,f"GetCurrentSaleListings_{item}.json")) as json_file:
         CurrentSalesData = json.load(json_file)[str(item)]['listings']
     for listing in CurrentSalesData:
@@ -46,7 +46,7 @@ def minprice(item,quality):
             elif listing['pricePerUnit'] < lowest_price:
                     lowest_price = listing['pricePerUnit']
                     lowest_price_server = listing['worldName']
-            if (listing['worldID'] == 57) and (listing['pricePerUnit'] < current_siren_price):
+            if current_siren_price == None or ((listing['worldID'] == 57) and (listing['pricePerUnit'] < current_siren_price)):
                 current_siren_price = listing['pricePerUnit']
     return lowest_price, lowest_price_server, current_siren_price
     # if lowest_price_server == None:
