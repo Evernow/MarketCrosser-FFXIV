@@ -20,6 +20,7 @@ import cProfile
 import pstats
 import io
 from pstats import SortKey
+from collections import OrderedDict
 
 from statistics import mean 
 world_IDs = {73: 'Adamantoise', 79: 'Cactuar', 54: 'Faerie', 63: 'Gilgamesh', 40: 'Jenova', 65: 'Midgardsormr', 99: 'Sargatanas', 57: 'Siren',
@@ -123,6 +124,7 @@ if __name__ == '__main__':
         #     modified_data.update(item)
         # multiprocessingdict = multiprocessingdict | modified_data
     multiprocessingdict = dict(multiprocessingdict)
+    multiprocessingdict = OrderedDict(sorted(multiprocessingdict.items(), key=lambda t: t[0]))
     with open("CurrentData.json", "w+") as outfile:
         json.dump(multiprocessingdict, outfile, indent = 4)
     files = glob.glob(os.path.join('JobInProgress/', "*"))
