@@ -96,7 +96,7 @@ if __name__ == '__main__':
     multiprocessingdict = q.dict()
     print('Started')
     print('Initialized initial dict')
-    for item in chunker(all_marketable_items, 50):
+    for item in chunker(all_marketable_items, 500):
         jobs = []
         for i in item:
             try:
