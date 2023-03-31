@@ -4,7 +4,7 @@ with open('CurrentData.json') as json_file:
     source = json.load(json_file)
 gil10kj= open("gil10k.json", "w+")
 gil100kj= open("gil100k.json", "w+")
-gil1mj=open("gil100k.json","w+")
+gil1mj=open("gil1m.json","w+")
 gil10mj=open("gil10m.json","w+")
 gilBeyondj=open("gilBeyond.json","w+")
 
