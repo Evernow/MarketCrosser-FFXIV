@@ -19,6 +19,8 @@ def catagories():
      #sorts out null variables
      if price == None:
         continue #does nothing
+      #sorts thru everything and puts them into their own respective jsons based on price
+      #note that this brings them into a list not a dict
      elif price <=1000:
          gil10k.append(inf)
          gil10k.append(source[inf])
@@ -34,6 +36,7 @@ def catagories():
      elif price >1000000:
          gilBeyond.append(inf)
          gilBeyond.append(source[inf])
+ #puts everything into the jsons
     json.dump(gil10k,gil10kj, indent = 6)
     json.dump(gil100k, gil100kj, indent = 6)
     json.dump(gil1m,gil1mj, indent = 6)
