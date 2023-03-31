@@ -1,3 +1,4 @@
+from contextlib import nullcontext
 import json
 with open('CurrentData.json') as json_file:
     source = json.load(json_file)
@@ -19,20 +20,25 @@ def catagories():
      if price == None:
         price=price #does nothing
      elif price <=1000:
-         gil10k.append(source[inf])
+         json.dump(inf,gil10kj, indent = 6)
+         json.dump(source[inf],gil10kj, indent = 6)
      elif price <=10000:
-         gil100k.append(source[inf])
+        json.dump(inf, gil100kj, indent = 6)
+        json.dump(source[inf], gil100kj, indent = 6)
+         
      elif price <=100000:
-         gil1m.append(source[inf])
+        json.dump(inf, gil1mj, indent = 6)
+        json.dump(source[inf], gil1mj, indent = 6)
      elif price <=1000000:
-         gil10m.append(source[inf])
+        json.dump(inf, gil10mj, indent = 6)
+        json.dump(source[inf], gil10mj, indent = 6)
      elif price >1000000:
-         gilBeyond.append(source[inf])
-    json.dump(gil10k,gil10kj, indent = 6)
-    json.dump(gil100k, gil100kj, indent = 6)
-    json.dump(gil1m,gil1mj, indent = 6)
-    json.dump(gil10m,gil10mj,indent =6 )
-    json.dump(gilBeyond,gilBeyondj,indent =6 )
+        json.dump(inf, gilBeyondj, indent = 6)
+        json.dump(source[inf], gilBeyondj, indent = 6)
+    #json.dump(gil100k, gil100kj, indent = 6)
+    #json.dump(gil1m,gil1mj, indent = 6)
+    #json.dump(gil10m,gil10mj,indent =6 )
+    #json.dump(gilBeyond,gilBeyondj,indent =6 )
 catagories()    
                
     
