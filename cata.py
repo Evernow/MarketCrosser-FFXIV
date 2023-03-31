@@ -9,7 +9,7 @@ gil10mj=open("gil10m.json","w+")
 gilBeyondj=open("gilBeyond.json","w+")
 
 #declares the lists containing the dicts 
-gil10k, gil100k, gil1m, gil10m, gilBeyond=[{}],[{}],[{}],[{}],[{}]
+gil10k, gil100k, gil1m, gil10m, gilBeyond=[],[],[],[],[]
     
 #places each item into a respective price bracket
 def catagories():
@@ -18,27 +18,27 @@ def catagories():
      price= source[inf]["LowestPrice"]
      #sorts out null variables
      if price == None:
-        price=price #does nothing
+        continue #does nothing
      elif price <=1000:
-         json.dump(inf,gil10kj, indent = 6)
-         json.dump(source[inf],gil10kj, indent = 6)
+         gil10k.append(inf)
+         gil10k.append(source[inf])
      elif price <=10000:
-        json.dump(inf, gil100kj, indent = 6)
-        json.dump(source[inf], gil100kj, indent = 6)
-         
+         gil100k.append(inf)
+         gil100k.append(source[inf])
      elif price <=100000:
-        json.dump(inf, gil1mj, indent = 6)
-        json.dump(source[inf], gil1mj, indent = 6)
+         gil1m.append(inf)
+         gil1m.append(source[inf])
      elif price <=1000000:
-        json.dump(inf, gil10mj, indent = 6)
-        json.dump(source[inf], gil10mj, indent = 6)
+         gil10m.append(inf)
+         gil10m.append(source[inf])
      elif price >1000000:
-        json.dump(inf, gilBeyondj, indent = 6)
-        json.dump(source[inf], gilBeyondj, indent = 6)
-    #json.dump(gil100k, gil100kj, indent = 6)
-    #json.dump(gil1m,gil1mj, indent = 6)
-    #json.dump(gil10m,gil10mj,indent =6 )
-    #json.dump(gilBeyond,gilBeyondj,indent =6 )
+         gilBeyond.append(inf)
+         gilBeyond.append(source[inf])
+    json.dump(gil10k,gil10kj, indent = 6)
+    json.dump(gil100k, gil100kj, indent = 6)
+    json.dump(gil1m,gil1mj, indent = 6)
+    json.dump(gil10m,gil10mj,indent =6 )
+    json.dump(gilBeyond,gilBeyondj,indent =6 )
 catagories()    
                
     
