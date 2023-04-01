@@ -71,9 +71,18 @@ def SortItemsByValue():
          i = contents[i]
          try:
             #  ((AveragePriceSiren - (AveragePriceSiren * MarketTax )) - LowestPrice) * SalesInLastMonth * AverageQuantitySiren
-            formula =  ((i['AveragePriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice']) * i['SalesInLastMonth'] * i['AverageQuantitySiren'])
+            if i['AveragePriceSiren'] < (i['CurrentPriceSiren'] * 10):
+               formula =  (((i['AveragePriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice'])) * i['AverageQuantitySiren'])* i['SalesInLastMonth'] 
+               valueused = i['AveragePriceSiren']
+            else:
+               formula =  (((i['CurrentPriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice']))  * i['AverageQuantitySiren'])* i['SalesInLastMonth']
+               valueused = i['CurrentPriceSiren']
             nameofitem = itemnames[index[index.find('(')+1:index.find(' ')-1]]['en']
-            string_readable = f"{nameofitem} sells for {i['LowestPrice']} in {i['LowestPriceServer']} and for {i['AveragePriceSiren']} in Siren, with {i['SalesInLastMonth']} in last month"
+            if 'True' in index:
+               hq = 'HQ'
+            else:
+               hq = 'NQ'
+            string_readable = f"{nameofitem} ({hq}) sells for {i['LowestPrice']} in {i['LowestPriceServer']} and for {valueused} in Siren, with {i['SalesInLastMonth']} in last month"
             sorted_dict[bucket].append((formula,string_readable))
          except TypeError:
             pass
