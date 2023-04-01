@@ -37,6 +37,7 @@ jobs:
         run: |
           python3 connecttoftp.py
           python3 gilmaking.py
+          python3 cata.py
       - name: commit files
         run: |
           git config --local user.email "action@github.com"
