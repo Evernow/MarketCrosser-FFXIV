@@ -72,10 +72,10 @@ def SortItemsByValue():
          try:
             #  ((AveragePriceSiren - (AveragePriceSiren * MarketTax )) - LowestPrice) * SalesInLastMonth * AverageQuantitySiren
             if i['AveragePriceSiren'] < (i['CurrentPriceSiren'] * 10):
-               formula =  (((i['AveragePriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice'])) * i['AverageQuantitySiren'])* i['SalesInLastMonth'] 
+               formula =  (((i['AveragePriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice'])) )* i['SalesInLastMonth'] * i['AverageQuantitySiren']
                valueused = i['AveragePriceSiren']
             else:
-               formula =  (((i['CurrentPriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice']))  * i['AverageQuantitySiren'])* i['SalesInLastMonth']
+               formula =  (((i['CurrentPriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice']))  )* i['SalesInLastMonth']* i['AverageQuantitySiren']
                valueused = i['CurrentPriceSiren']
             nameofitem = itemnames[index[index.find('(')+1:index.find(' ')-1]]['en']
             if 'True' in index:
