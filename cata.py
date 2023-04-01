@@ -48,9 +48,19 @@ def GetLowestMarketTax():
    data_json = json.loads(html)
    return min(list(data_json.values()))*0.01
 
+def GetItemNames():
+   # Gets current lowest tax rate in Siren
+   url = f"https://raw.githubusercontent.com/ffxiv-teamcraft/ffxiv-teamcraft/master/libs/data/src/lib/json/items.json"
+   headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.3'}
+   req = Request(url=url, headers=headers) 
+   html = urlopen(req).read() 
+   data_json = json.loads(html)
+   return data_json
+
 def SortItemsByValue():
    MarketTax = GetLowestMarketTax()
    sorted_dict = {}
+   itemnames = GetItemNames()
    buckets = ["gil10k.json","gil100k.json","gil1m.json","gil10m.json","gilBeyond.json"]
    for bucket in buckets:
       sorted_dict[bucket] = []
@@ -62,11 +72,13 @@ def SortItemsByValue():
          try:
             #  ((AveragePriceSiren - (AveragePriceSiren * MarketTax )) - LowestPrice) * SalesInLastMonth * AverageQuantitySiren
             formula =  ((i['AveragePriceSiren'] - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice']) * i['SalesInLastMonth'] * i['AverageQuantitySiren'])
-            sorted_dict[bucket].append((formula,index))
-         except:
+            nameofitem = itemnames[index[index.find('(')+1:index.find(' ')-1]]['en']
+            string_readable = f"{nameofitem} sells for {i['LowestPrice']} in {i['LowestPriceServer']} and for {i['AveragePriceSiren']} in Siren, with {i['SalesInLastMonth']} in last month"
+            sorted_dict[bucket].append((formula,string_readable))
+         except TypeError:
             pass
       sorted_dict[bucket] = sorted(sorted_dict[bucket], key=lambda x: x[0], reverse=True)
-   json.dump(sorted_dict,open("ValuesSorted.json", "w+"),indent =6 )
+   json.dump(sorted_dict,open("ValuesSorted.json", "w+"),indent =1 )
 catagories()  
 SortItemsByValue()
   
