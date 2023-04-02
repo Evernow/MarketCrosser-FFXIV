@@ -16,7 +16,10 @@ def catagories():
 
    #goes thru all items
    for inf in source:
-      price= source[inf]["LowestPrice"]
+      try:
+         price = min(source[inf]['AveragePriceSiren'], source[inf]['CurrentPriceSiren'])
+      except:
+         price = None
       #sorts out null variables
       if price == None:
          continue #does nothing
