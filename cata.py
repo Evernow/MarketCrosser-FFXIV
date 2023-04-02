@@ -71,7 +71,7 @@ def SortItemsByValue():
          i = contents[i]
          try:
             #  ((AveragePriceSiren - (AveragePriceSiren * MarketTax )) - LowestPrice) * SalesInLastMonth * AverageQuantitySiren
-            formula =  (((min(i['AveragePriceSiren'], i['CurrentPriceSiren']) - (i['AveragePriceSiren'] * MarketTax )) - (i['LowestPrice'])) )* i['SalesInLastMonth'] * i['AverageQuantitySiren']
+            formula =  (((min(i['AveragePriceSiren'], i['CurrentPriceSiren']) - (min(i['AveragePriceSiren'], i['CurrentPriceSiren']) * MarketTax )) - (i['LowestPrice'])) )* i['SalesInLastMonth'] * i['AverageQuantitySiren']
             valueused = min(i['AveragePriceSiren'], i['CurrentPriceSiren'])
             nameofitem = itemnames[index[index.find('(')+1:index.find(' ')-1]]['en']
             if 'True' in index:
