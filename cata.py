@@ -25,16 +25,16 @@ def catagories():
          continue #does nothing
       #sorts thru everything and puts them into their own respective jsons based on price
       #note that this brings them into a list not a dict
-      elif price <=1000:
-         gil10k[inf] = source[inf]
-      elif price <=10000:
-         gil100k[inf] = source[inf]
-      elif price <=100000:
-         gil1m[inf] = source[inf]
-      elif price <=1000000:
-         gil10m[inf] = source[inf]
-      elif price >1000000:
+      elif price >10000000:
          gilBeyond[inf] = source[inf]
+      elif price >=1000000:
+         gil10m[inf] = source[inf]
+      elif price >=100000:
+         gil1m[inf] = source[inf]
+      elif price >=10000:
+         gil100k[inf] = source[inf]
+      elif price >=1000:
+         gil10k[inf] = source[inf] 
  #puts everything into the jsons
    json.dump(gil10k,gil10kj, indent = 6)
    json.dump(gil100k, gil100kj, indent = 6)
