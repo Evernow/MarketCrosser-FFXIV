@@ -20,6 +20,7 @@ import cProfile
 import pstats
 import io
 from pstats import SortKey
+from scipy import stats
 from collections import OrderedDict
 
 from statistics import mean 
@@ -66,8 +67,10 @@ def AverageSalePrice(item,quality,q):
         HistoryOfSalesData = json.load(json_file)[str(item)]['entries']
     for sale in HistoryOfSalesData:
         if sale['worldID'] == 57  and sale['hq'] == quality: #and ((time.time()-sale['timestamp'])< 345600):
-            list_of_sales_quantity.append(sale['quantity'])
-            list_of_sales_price.append(sale['pricePerUnit']) 
+            if (time.time()-sale['timestamp']) < 604800:
+                print('test')
+                list_of_sales_quantity.append(sale['quantity'])
+                list_of_sales_price.append(sale['pricePerUnit']) 
             if (time.time() - sale['timestamp']) < 86400:
                 sales_in_last_day += 1
             if (time.time() - sale['timestamp']) < 604800:
@@ -75,7 +78,7 @@ def AverageSalePrice(item,quality,q):
             if (time.time() - sale['timestamp']) < 2628288:
                 sales_in_last_month += 1
     if len(list_of_sales_price) > 0:
-        mean_list_price = mean(list_of_sales_price)
+        mean_list_price = stats.trim_mean(list_of_sales_price, 0.2)
         mean_list_quantity = mean(list_of_sales_quantity)
     else:
         mean_list_price = None
@@ -102,98 +105,41 @@ def GetAllMarketableItems():
     return data_json
 
 
+
+testing = False
 if __name__ == '__main__':
-    all_marketable_items = GetAllMarketableItems()#[:10] # Slice is for testing
-    q = multiprocessing.Manager()
-
-    multiprocessingdict = q.dict()
-    print('Started')
-    print('Initialized initial dict')
-    for item in chunker(all_marketable_items, 50):
-        jobs = []
-        for i in item:
-            try:
-                p = multiprocessing.Process(target=AverageSalePrice, args=(i,False,multiprocessingdict,))
-                jobs.append(p)
-                p.start()
-                p2 = multiprocessing.Process(target=AverageSalePrice, args=(i,True,multiprocessingdict,))
-                jobs.append(p2)
-                p2.start()
-            except:
-                print("Couldn't process item " + str(i))   
-                print(traceback.format_exc())
-        while len(jobs) > 0:
-            jobs = [job for job in jobs if job.is_alive()]
-        print('Finished a batch of jobs')
-        print(f'{item[0]} to {item[-1]}')
-        # q.put(None) # This cost me an hour of my life to figure out, if you don't send it a None it'll keep waiting for all eternity.
-        # modified_data = {}
-        # while True:
-        #     item = q.get()
-        #     if item is None:
-        #         break
-        #     modified_data.update(item)
-        # multiprocessingdict = multiprocessingdict | modified_data
-    multiprocessingdict = dict(multiprocessingdict)
-    multiprocessingdict = OrderedDict(sorted(multiprocessingdict.items(), key=lambda t: t[0]))
-    with open("CurrentData.json", "w+") as outfile:
-        json.dump(multiprocessingdict, outfile, indent = 4)
-    files = glob.glob(os.path.join('JobInProgress/', "*"))
-    for f in files:
-        # If a directory is completely empty github removes it, so we have a dummy file in it always
-        if 'dummyfiledonotremove.txt' not in f:
-            os.remove(f)
-    # print(multiprocessingdict)
+    if not testing:
+        all_marketable_items = GetAllMarketableItems()#[:10] # Slice is for testing
+        q = multiprocessing.Manager()
+        multiprocessingdict = q.dict()
+        print('Started')
+        print('Initialized initial dict')
+        for item in chunker(all_marketable_items, 50):
+            jobs = []
+            for i in item:
+                try:
+                    p = multiprocessing.Process(target=AverageSalePrice, args=(i,False,multiprocessingdict,))
+                    jobs.append(p)
+                    p.start()
+                    p2 = multiprocessing.Process(target=AverageSalePrice, args=(i,True,multiprocessingdict,))
+                    jobs.append(p2)
+                    p2.start()
+                except:
+                    print("Couldn't process item " + str(i))   
+                    print(traceback.format_exc())
+            while len(jobs) > 0:
+                jobs = [job for job in jobs if job.is_alive()]
+            print('Finished a batch of jobs')
+            print(f'{item[0]} to {item[-1]}')
+        multiprocessingdict = dict(multiprocessingdict)
+        multiprocessingdict = OrderedDict(sorted(multiprocessingdict.items(), key=lambda t: t[0]))
+        with open("CurrentData.json", "w+") as outfile:
+            json.dump(multiprocessingdict, outfile, indent = 4)
+        files = glob.glob(os.path.join('JobInProgress/', "*"))
+        for f in files:
+            # If a directory is completely empty github removes it, so we have a dummy file in it always
+            if 'dummyfiledonotremove.txt' not in f:
+                os.remove(f)
 
 
-
-
-
-
-
-
-
-
-
-# print(minprice(33696,True))
-
-
-# matser_dict = {}
-
-# # with open(os.path.join(parent_directory,"HistoryOfSalesData_Encrypted.json")) as json_file:
-# #     HistoryOfSalesData = json.load(json_file)
-# with open(os.path.join(parent_directory,"CurrentSalesData_Encrypted.json")) as json_file:
-#     CurrentSalesData = json.load(json_file)
-# print('Finished loading in jsons')
-# for item in CurrentSalesData:
-#     print(item)
-#     item_lowest_location = (maxprice(CurrentSalesData[item])) 
-#     siren_prices = CurrentSalesData[item]['Siren']
-#     try:
-#         last24hourssales = HistoryOfSalesData[item]
-#     except KeyError:
-#         last24hourssales = 0
-#         print(f'No sales found for {item}')
-#     if ((siren_prices) != None) and ((item_lowest_location)[1] != None):
-#         matser_dict[item] = [item_lowest_location, siren_prices, last24hourssales]
-# list_of_differences = []
-# current_biggest_dif = 0
-# item_name = None
-# tupletest = None
-# # print(matser_dict)
-
-# for item in matser_dict:
-#     # if (matser_dict[item][1] - matser_dict[item][0][0]) * matser_dict[item][2]  > current_biggest_dif:
-#         if matser_dict[item][2] > 10:
-#             current_biggest_dif = (matser_dict[item][1] - matser_dict[item][0][0]) #* matser_dict[item][2]
-#             item_name = item
-#             tupletest = matser_dict[item][0]
-#             list_of_differences.append((current_biggest_dif,item,matser_dict[item][0],matser_dict[item][1],matser_dict[item][2]))
-# # print(current_biggest_dif)
-# # print(name_of_items[item_name])
-# list_of_differences = sorted(list_of_differences,key=lambda x: x[0],reverse=True
-# )
-# for x in range(50):
-#     # print(f'Item {list_of_differences[x][1]} sells for {list_of_differences[x][3]} in Siren and for {list_of_differences[x][2]} and has sold {list_of_differences[x][4]} times')
-#     print()
 
