@@ -65,7 +65,7 @@ def SortItemsByValue():
    MarketTax = GetLowestMarketTax()
    sorted_dict = {}
    itemnames = GetItemNames()
-   buckets = ["gil10k.json","gil100k.json","gil1m.json","gil10m.json","gilBeyond.json"]
+   buckets = ["gil10k.json","gil100k.json","gil500k.json","gil1m.json","gil10m.json","gilBeyond30m.json"]
    for bucket in buckets:
       sorted_dict[bucket] = []
       with open(bucket, 'r') as j:
