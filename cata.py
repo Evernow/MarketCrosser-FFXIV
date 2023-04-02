@@ -1,7 +1,7 @@
 import json
 from urllib.request import urlopen, Request
 #declares the lists containing the dicts 
-gil10k, gil100k, gil1m, gil10m, gilBeyond={},{},{},{},{}
+gil10k, gil100k, gil1m, gil10m, gilBeyond30m, gil500k={},{},{},{},{},{}
 
 
 #places each item into a respective price bracket
@@ -12,7 +12,8 @@ def catagories():
    gil100kj= open("gil100k.json", "w+")
    gil1mj=open("gil1m.json","w+")
    gil10mj=open("gil10m.json","w+")
-   gilBeyondj=open("gilBeyond.json","w+")
+   gilBeyond30mj=open("gilBeyond30m.json","w+")
+   gil500kj=open("gil500k.json","w+")
 
    #goes thru all items
    for inf in source:
@@ -21,23 +22,26 @@ def catagories():
       if price == None:
          continue #does nothing
       #sorts thru everything and puts them into their own respective jsons based on price
-      #note that this brings them into a list not a dict
-      elif price >10000000:
-         gilBeyond[inf] = source[inf]
-      elif price >=1000000:
+      elif price >30000000:
+         gilBeyond30m[inf] = source[inf]
+      elif price >=10000000:
          gil10m[inf] = source[inf]
-      elif price >=100000:
+      elif price >=1000000:
          gil1m[inf] = source[inf]
-      elif price >=10000:
+      elif price >=500000:
+         gil500k[inf] = source[inf]
+      elif price >=100000:
          gil100k[inf] = source[inf]
-      elif price >=1000:
+      elif price >=10000:
          gil10k[inf] = source[inf] 
  #puts everything into the jsons
    json.dump(gil10k,gil10kj, indent = 6)
    json.dump(gil100k, gil100kj, indent = 6)
+   json.dump(gil500k,gil500kj,indent =6 )
    json.dump(gil1m,gil1mj, indent = 6)
    json.dump(gil10m,gil10mj,indent =6 )
-   json.dump(gilBeyond,gilBeyondj,indent =6 )
+   json.dump(gilBeyond30m,gilBeyond30mj,indent =6 )
+   
 
 def GetLowestMarketTax():
    # Gets current lowest tax rate in Siren
