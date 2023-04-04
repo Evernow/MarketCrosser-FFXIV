@@ -70,14 +70,14 @@
             "SalesInLastMonth": 0
       },
       "(10168, False)": {
-            "AveragePriceSiren": 799997.0,
+            "AveragePriceSiren": 799998.5,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 840000,
+            "CurrentPriceSiren": null,
             "LowestPrice": 525000,
             "LowestPriceServer": "Brynhildr",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 1,
-            "SalesInLastMonth": 4
+            "SalesInLast24Hours": 1,
+            "SalesInLastWeek": 2,
+            "SalesInLastMonth": 5
       },
       "(10169, False)": {
             "AveragePriceSiren": null,
@@ -90,14 +90,14 @@
             "SalesInLastMonth": 1
       },
       "(10174, False)": {
-            "AveragePriceSiren": 1590800.0,
+            "AveragePriceSiren": 1585400.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1659000,
+            "CurrentPriceSiren": null,
             "LowestPrice": 626850,
             "LowestPriceServer": "Brynhildr",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 1,
-            "SalesInLastMonth": 2
+            "SalesInLast24Hours": 1,
+            "SalesInLastWeek": 2,
+            "SalesInLastMonth": 3
       },
       "(10175, False)": {
             "AveragePriceSiren": null,
@@ -112,7 +112,7 @@
       "(10361, False)": {
             "AveragePriceSiren": 1135998.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1169700,
+            "CurrentPriceSiren": 1169699,
             "LowestPrice": 651000,
             "LowestPriceServer": "Midgardsormr",
             "SalesInLast24Hours": 0,
@@ -189,21 +189,11 @@
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
       },
-      "(13065, False)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 1039490,
-            "LowestPrice": 996025,
-            "LowestPriceServer": "Gilgamesh",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 1
-      },
       "(13090, False)": {
             "AveragePriceSiren": 909670.0,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 1010578,
-            "LowestPrice": 920836,
+            "LowestPrice": 892500,
             "LowestPriceServer": "Behemoth",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 3,
@@ -452,7 +442,7 @@
       "(21792, False)": {
             "AveragePriceSiren": 976916.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1026895,
+            "CurrentPriceSiren": 1026896,
             "LowestPrice": 525000,
             "LowestPriceServer": "Seraph",
             "SalesInLast24Hours": 0,
@@ -462,7 +452,7 @@
       "(21793, False)": {
             "AveragePriceSiren": 991916.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1041910,
+            "CurrentPriceSiren": 1041909,
             "LowestPrice": 714000,
             "LowestPriceServer": "Seraph",
             "SalesInLast24Hours": 0,
@@ -472,7 +462,7 @@
       "(21794, False)": {
             "AveragePriceSiren": 989988.5,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1036349,
+            "CurrentPriceSiren": 1034267,
             "LowestPrice": 630000,
             "LowestPriceServer": "Brynhildr",
             "SalesInLast24Hours": 0,
@@ -482,9 +472,9 @@
       "(21795, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 1827016,
-            "LowestPrice": 525017,
-            "LowestPriceServer": "Maduin",
+            "CurrentPriceSiren": 1825967,
+            "LowestPrice": 627900,
+            "LowestPriceServer": "Marilith",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 28
@@ -512,7 +502,7 @@
       "(21799, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 1040550,
+            "CurrentPriceSiren": 1034268,
             "LowestPrice": 934086,
             "LowestPriceServer": "Gilgamesh",
             "SalesInLast24Hours": 0,
@@ -549,6 +539,16 @@
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 3
       },
+      "(23342, False)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": 3150000,
+            "LowestPrice": 944999,
+            "LowestPriceServer": "Jenova",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 0
+      },
       "(24347, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
@@ -562,12 +562,22 @@
       "(24635, False)": {
             "AveragePriceSiren": 667333.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 735000,
-            "LowestPrice": 619495,
+            "CurrentPriceSiren": 766500,
+            "LowestPrice": 618974,
             "LowestPriceServer": "Goblin",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 10,
             "SalesInLastMonth": 21
+      },
+      "(24817, False)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": 619496,
+            "LowestPrice": 518700,
+            "LowestPriceServer": "Gilgamesh",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 3
       },
       "(24993, False)": {
             "AveragePriceSiren": null,
@@ -614,7 +624,7 @@
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 861000,
             "LowestPrice": 524999,
-            "LowestPriceServer": "Goblin",
+            "LowestPriceServer": "Famfrit",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 1,
             "SalesInLastMonth": 2
@@ -629,21 +639,11 @@
             "SalesInLastWeek": 1,
             "SalesInLastMonth": 2
       },
-      "(27900, False)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 787499,
-            "LowestPrice": 628948,
-            "LowestPriceServer": "Faerie",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 2
-      },
       "(27916, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": 735000,
-            "LowestPrice": 672000,
+            "LowestPrice": 671999,
             "LowestPriceServer": "Midgardsormr",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
@@ -669,22 +669,12 @@
             "SalesInLastWeek": 8,
             "SalesInLastMonth": 34
       },
-      "(28590, False)": {
-            "AveragePriceSiren": 558326.6666666666,
-            "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 509252,
-            "LowestPrice": 509252,
-            "LowestPriceServer": "Siren",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 3,
-            "SalesInLastMonth": 17
-      },
       "(28590, True)": {
             "AveragePriceSiren": 552450.0,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 543898,
-            "LowestPrice": 543898,
-            "LowestPriceServer": "Siren",
+            "LowestPrice": 525000,
+            "LowestPriceServer": "Hyperion",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 2,
             "SalesInLastMonth": 6
@@ -692,8 +682,8 @@
       "(28616, False)": {
             "AveragePriceSiren": 729893.3333333334,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1441300,
-            "LowestPrice": 514499,
+            "CurrentPriceSiren": 1277850,
+            "LowestPrice": 509250,
             "LowestPriceServer": "Malboro",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 5,
@@ -742,9 +732,9 @@
       "(28917, False)": {
             "AveragePriceSiren": 652175.8888888889,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 880948,
-            "LowestPrice": 627899,
-            "LowestPriceServer": "Adamantoise",
+            "CurrentPriceSiren": 880947,
+            "LowestPrice": 524999,
+            "LowestPriceServer": "Cactuar",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 13,
             "SalesInLastMonth": 36
@@ -763,7 +753,7 @@
             "AveragePriceSiren": 899999.8571428572,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 945000,
-            "LowestPrice": 892488,
+            "LowestPrice": 892485,
             "LowestPriceServer": "Diabolos",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 11,
@@ -813,30 +803,30 @@
             "AveragePriceSiren": 1024966.3333333334,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 1575000,
-            "LowestPrice": 619500,
+            "LowestPrice": 588000,
             "LowestPriceServer": "Adamantoise",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 5,
-            "SalesInLastMonth": 31
+            "SalesInLastMonth": 30
       },
       "(31352, False)": {
-            "AveragePriceSiren": 779259.3333333334,
+            "AveragePriceSiren": 788888.5,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 2100000,
             "LowestPrice": 682500,
             "LowestPriceServer": "Adamantoise",
             "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 3,
+            "SalesInLastWeek": 2,
             "SalesInLastMonth": 9
       },
       "(31353, False)": {
             "AveragePriceSiren": 990000.0,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 1050000,
-            "LowestPrice": 903000,
+            "LowestPrice": 902999,
             "LowestPriceServer": "Excalibur",
             "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 2,
+            "SalesInLastWeek": 1,
             "SalesInLastMonth": 14
       },
       "(31354, False)": {
@@ -903,21 +893,11 @@
             "AveragePriceSiren": 899999.0,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 944999,
-            "LowestPrice": 881999,
-            "LowestPriceServer": "Marilith",
+            "LowestPrice": 902999,
+            "LowestPriceServer": "Sargatanas",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 1,
             "SalesInLastMonth": 10
-      },
-      "(32835, False)": {
-            "AveragePriceSiren": 1274241.7142857143,
-            "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1783952,
-            "LowestPrice": 934498,
-            "LowestPriceServer": "Hyperion",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 11,
-            "SalesInLastMonth": 37
       },
       "(32841, False)": {
             "AveragePriceSiren": 849498.75,
@@ -979,6 +959,16 @@
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
       },
+      "(33888, True)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": 734940,
+            "LowestPrice": 515129,
+            "LowestPriceServer": "Midgardsormr",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 1
+      },
       "(33889, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
@@ -1013,11 +1003,21 @@
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": null,
-            "LowestPrice": 630000,
-            "LowestPriceServer": "Leviathan",
+            "LowestPrice": 551250,
+            "LowestPriceServer": "Jenova",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
+      },
+      "(33892, True)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": 1142348,
+            "LowestPrice": 524999,
+            "LowestPriceServer": "Coeurl",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 3
       },
       "(33893, False)": {
             "AveragePriceSiren": null,
@@ -1179,16 +1179,6 @@
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
       },
-      "(36029, True)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 1049990,
-            "LowestPrice": 524995,
-            "LowestPriceServer": "Adamantoise",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 0
-      },
       "(36032, True)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
@@ -1292,7 +1282,7 @@
       "(38224, False)": {
             "AveragePriceSiren": 1016666.6666666666,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1102500,
+            "CurrentPriceSiren": 1092000,
             "LowestPrice": 733949,
             "LowestPriceServer": "Gilgamesh",
             "SalesInLast24Hours": 0,
@@ -1322,8 +1312,8 @@
       "(38543, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 971250,
-            "LowestPrice": 971250,
+            "CurrentPriceSiren": 969150,
+            "LowestPrice": 969150,
             "LowestPriceServer": "Siren",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
@@ -1332,7 +1322,7 @@
       "(38543, True)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 970304,
+            "CurrentPriceSiren": 969148,
             "LowestPrice": 519750,
             "LowestPriceServer": "Faerie",
             "SalesInLast24Hours": 0,
@@ -1422,9 +1412,9 @@
       "(38549, True)": {
             "AveragePriceSiren": 622167.75,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 616348,
-            "LowestPrice": 533358,
-            "LowestPriceServer": "Lamia",
+            "CurrentPriceSiren": 616347,
+            "LowestPrice": 525000,
+            "LowestPriceServer": "Hyperion",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 4,
             "SalesInLastMonth": 17
@@ -1442,12 +1432,12 @@
       "(38551, True)": {
             "AveragePriceSiren": 899675.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 944660,
+            "CurrentPriceSiren": 944658,
             "LowestPrice": 524751,
             "LowestPriceServer": "Famfrit",
             "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 1,
-            "SalesInLastMonth": 5
+            "SalesInLastWeek": 2,
+            "SalesInLastMonth": 6
       },
       "(38552, False)": {
             "AveragePriceSiren": null,
@@ -1473,8 +1463,8 @@
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": null,
-            "LowestPrice": 524265,
-            "LowestPriceServer": "Balmung",
+            "LowestPrice": 997500,
+            "LowestPriceServer": "Halicarnassus",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 3
@@ -1523,8 +1513,8 @@
             "AveragePriceSiren": 702602.0,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 737736,
-            "LowestPrice": 535448,
-            "LowestPriceServer": "Lamia",
+            "LowestPrice": 524998,
+            "LowestPriceServer": "Sargatanas",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 1,
             "SalesInLastMonth": 6
@@ -1542,8 +1532,8 @@
       "(38557, False)": {
             "AveragePriceSiren": 952487.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 997976,
-            "LowestPrice": 997976,
+            "CurrentPriceSiren": 997974,
+            "LowestPrice": 997974,
             "LowestPriceServer": "Siren",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 1,
@@ -1552,7 +1542,7 @@
       "(38557, True)": {
             "AveragePriceSiren": 950475.3333333334,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 997977,
+            "CurrentPriceSiren": 997975,
             "LowestPrice": 535458,
             "LowestPriceServer": "Lamia",
             "SalesInLast24Hours": 0,
@@ -1563,7 +1553,7 @@
             "AveragePriceSiren": 862542.4285714285,
             "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 971249,
-            "LowestPrice": 924000,
+            "LowestPrice": 918750,
             "LowestPriceServer": "Halicarnassus",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 9,
@@ -1572,7 +1562,7 @@
       "(39410, False)": {
             "AveragePriceSiren": 1578995.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 1636942,
+            "CurrentPriceSiren": 1636936,
             "LowestPrice": 944045,
             "LowestPriceServer": "Famfrit",
             "SalesInLast24Hours": 0,
@@ -1592,9 +1582,9 @@
       "(39482, False)": {
             "AveragePriceSiren": 1744999.75,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 2099987,
-            "LowestPrice": 522898,
-            "LowestPriceServer": "Zalera",
+            "CurrentPriceSiren": 2099985,
+            "LowestPrice": 509250,
+            "LowestPriceServer": "Malboro",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 4,
             "SalesInLastMonth": 34
@@ -1652,8 +1642,8 @@
       "(39560, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 825978,
-            "LowestPrice": 825978,
+            "CurrentPriceSiren": 825951,
+            "LowestPrice": 825951,
             "LowestPriceServer": "Siren",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
@@ -1700,20 +1690,20 @@
             "SalesInLastMonth": 1
       },
       "(39583, False)": {
-            "AveragePriceSiren": 625000.0,
+            "AveragePriceSiren": 666666.3333333334,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 787500,
-            "LowestPrice": 735000,
+            "CurrentPriceSiren": 839999,
+            "LowestPrice": 734999,
             "LowestPriceServer": "Cactuar",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 2,
-            "SalesInLastMonth": 21
+            "SalesInLast24Hours": 1,
+            "SalesInLastWeek": 3,
+            "SalesInLastMonth": 22
       },
       "(39587, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 1516665,
-            "LowestPrice": 944857,
+            "CurrentPriceSiren": 1490995,
+            "LowestPrice": 944843,
             "LowestPriceServer": "Gilgamesh",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
