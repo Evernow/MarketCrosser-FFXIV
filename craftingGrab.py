@@ -8,18 +8,23 @@ import bs4
 import multiprocessing
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.common.options import ArgOptions
 import json
 import time
 class craftingGrabber:
+    global links, crecipie, c_visited
     #dictionary of items 
     crecipie={}
     #simple list of the items that have been visited
     c_visited=[]
-    
+    #list of the hyperlinks of all the items
+    links =[]
+    #returns the hyperlink of items given the 
+
     
         
-    
+    def materials():
+        exit
     
     
     #lets you create a webscraper given specific key terms, and urls. 
@@ -29,20 +34,25 @@ class craftingGrabber:
     #the reason for using a method is 
     #in the hopes of maintaining expandability in case of changes to the official website
     def ffxivScraper(url,id,xpath,className,blockedterms,blockedurls):
-        options = Options()
-        options.add_argument('--headless')
-        driver = webdriver.Firefox(options=options)
+        nextprev,materials,crystals,level,job="",[],[],1,None 
+        
+        driver = webdriver.Firefox()
         driver.get(url)
-        list_of_items = []
-        # Get all items on page in a list (their URLs)
-        all_questions = driver.find_elements(By.CLASS_NAME, className)
-        for question in all_questions:
-            list_of_items.append(question.get_attribute("href"))
-        print(list_of_items)
-        # DB = driver.find_elements(By.CLASS_NAME, className)
-        # driver.get
-        # for s in range(len(DB)):
-        #     DB[s].click()
+        x=True
+        while(x==True):
+        
+        #  try:
+            DB = driver.find_elements(By.CLASS_NAME, className)
+            driver.get
+        #  this rotates thru and assigns the href value to all the functions(hyperlinks)
+            for s in range(len(DB)):
+                links.append(DB[s].get_attribute("href"))
+                #clicks the next one
+            try:
+                tonext=driver.find_element(By.CLASS_NAME, "next")
+                tonext.click()
+            except:
+                x=False
         
       #  except:
          #   continue
@@ -50,6 +60,7 @@ class craftingGrabber:
          #       DB = driver.find_element(By.XPATH, xpath)
          #   except:
          #       DB= driver.find_element(By.ID, id)
-    
-    x = ffxivScraper("https://na.finalfantasyxiv.com/lodestone/playguide/db/recipe/?page=1","db-table__txt--detail_link","db-table__txt--detail_link","db-table__txt--detail_link","","" )  
-    # print(x)
+         
+         
+         
+    ffxivScraper("https://na.finalfantasyxiv.com/lodestone/playguide/db/recipe/?page=205","db-table__txt--detail_link","db-table__txt--detail_link","db-table__txt--detail_link","","" )
