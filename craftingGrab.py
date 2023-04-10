@@ -41,7 +41,7 @@ class craftingGrabber:
         #initialconnect is used to count the while loop times it took to connect
         initialconnect=True
         options = Options()
-        #options.add_argument('--headless')
+        options.add_argument('--headless')
         options.set_preference("general.useragent.override", "userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0")
         driver = webdriver.Firefox(options=options)
         driver.get(url)
@@ -89,6 +89,7 @@ class craftingGrabber:
     def ffxivScraper(self,url,className):
       options = Options()
       options.add_argument('--headless')
+      options.set_preference("general.useragent.override", "userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0")
       driver = webdriver.Firefox(options=options)
       driver.get(url)
       ingredientlst={}
