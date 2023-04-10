@@ -19,10 +19,9 @@ class craftingGrabber:
         #simple list of the hyperlinks of items to visit
         self.links =[]
     #sanity checking variables
-        #list of the hyperlinks of all the items that have been visited successfully
-        self.s_visited=[]
         #list of the hyperlinks of the items that were unsuccesfully visited
-        self.e_visited=[]
+        self.errvisited=[]
+        
      
 
     
@@ -79,7 +78,144 @@ class craftingGrabber:
         return(self.links)
     
     def ffxivScraper(self,url,className):
-        self.ffxivItemHyperlinkScraper(url,className)
+        driver = webdriver.Firefox()
+        driver.get(url)
+        ingredientlst={}
+        errorchk=True
+        
+        linklist=self.ffxivItemHyperlinkScraper(url,className)
+        for vars in linklist:
+            #makes the current scope the page of the new element
+            #also adds a link to a page if its unable to connect where it will attempt again in 1 hr
+            try:
+                driver.get(vars)
+                errorchk=True
+            except:
+                print("there is some issue with connecting to one or more of the items we will retry those missing in 1hr")
+                self.errvisited.append(vars)
+                errorchk=False
+                
+        
+            if(errorchk):
+                #name of the crafted item
+                namex=driver.find_element(By.CLASS_NAME,"db-view__item__text__name")
+                name=namex.text
+                
+                #name of the job required to craft
+                jobx=driver.find_element(By.CLASS_NAME,"db-view__item__text__job_name")
+                job=jobx.text
+                
+                #catagory of the item 
+                categoryx=driver.find_element(By.CLASS_NAME,"db-view__recipe__text__category")
+                category=categoryx.text
+                
+                #sorts through strings to find different stats from crafting that can be used for sorting
+                stuffx=driver.find_element(By.CLASS_NAME,"db-view__recipe__craftdata")
+                stuff=stuffx.text
+                
+                #length is one extra to account for the space
+                TClocb=stuff.find("Total Crafted")+14
+                TClocc=stuff.find("Difficulty")
+                Dlocb=stuff.find("Difficulty")+11
+                Dlocc=stuff.find("Durability")
+                #total amount of the item crafted from a single craft
+                totalCrafted=stuff[TClocb:TClocc]
+                #items crafting difficulty
+                diff=stuff[Dlocb:Dlocc]
+                #turns them into ints
+                diff=int(diff)
+                totalCrafted=int(totalCrafted)
+                
+                #returns the level required to craft
+                levelx=driver.find_element(By.CLASS_NAME,"db-view__item__text__level__inner")
+                level=levelx.text
+                level=level[3:]
+                
+                #dict of ingredients and the amount of them required
+                ingredients={}
+                #name of ingredients and amount of ingredients in a list
+                ingredients_name=""
+                ingredients_amt=0
+                #note this containes both the name and the number of items we need to parse thru these and assign them
+                ingredientsx=driver.find_elements(By.CLASS_NAME,"db-view__data__reward__item__name")
+                #filter and assigns peices of ingredientsx
+                
+                for ing in ingredientsx:
+                    ingredients_amt=((ing.find_element(By.CLASS_NAME, "db-view__item_num")).text)
+                    ingredients_name=((ing.find_element(By.CLASS_NAME, "db_popup")).text)
+                    ingredients[ingredients_name]=ingredients_amt
+                #ingredient creation
+                ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
+       
+        #code for fixing errors in retrieval
+        while(self.errvisited!=[]):
+            for vars in list(self.errvisited):
+                #makes the current scope the page of the new element
+                #also adds a link to a page if its unable to connect where it will attempt again in 1 hr
+                
+                try:
+                    driver.get(vars)
+                    errorchk=True
+                    self.errvisited.remove(vars)
+                    
+                except:
+                    print("there is some issue with connecting to one or more of the items we will retry those missing in 1hr")
+                    errorchk=False
+                    
+            
+                if(errorchk):
+                    #name of the crafted item
+                    namex=driver.find_element(By.CLASS_NAME,"db-view__item__text__name")
+                    name=namex.text
+                    
+                    #name of the job required to craft
+                    jobx=driver.find_element(By.CLASS_NAME,"db-view__item__text__job_name")
+                    job=jobx.text
+                    
+                    #catagory of the item 
+                    categoryx=driver.find_element(By.CLASS_NAME,"db-view__recipe__text__category")
+                    category=categoryx.text
+                    
+                    #sorts through strings to find different stats from crafting that can be used for sorting
+                    stuffx=driver.find_element(By.CLASS_NAME,"db-view__recipe__craftdata")
+                    stuff=stuffx.text
+                    
+                    #length is one extra to account for the space
+                    TClocb=stuff.find("Total Crafted")+14
+                    TClocc=stuff.find("Difficulty")
+                    Dlocb=stuff.find("Difficulty")+11
+                    Dlocc=stuff.find("Durability")
+                    #total amount of the item crafted from a single craft
+                    totalCrafted=stuff[TClocb:TClocc]
+                    #items crafting difficulty
+                    diff=stuff[Dlocb:Dlocc]
+                    #turns them into ints
+                    diff=int(diff)
+                    totalCrafted=int(totalCrafted)
+                    
+                    #returns the level required to craft
+                    levelx=driver.find_element(By.CLASS_NAME,"db-view__item__text__level__inner")
+                    level=levelx.text
+                    level=level[3:]
+                    
+                    #dict of ingredients and the amount of them required
+                    ingredients={}
+                    #name of ingredients and amount of ingredients in a list
+                    ingredients_name=""
+                    ingredients_amt=0
+                    #note this containes both the name and the number of items we need to parse thru these and assign them
+                    ingredientsx=driver.find_elements(By.CLASS_NAME,"db-view__data__reward__item__name")
+                    #filter and assigns peices of ingredientsx
+                    
+                    for ing in ingredientsx:
+                        ingredients_amt=((ing.find_element(By.CLASS_NAME, "db-view__item_num")).text)
+                        ingredients_name=((ing.find_element(By.CLASS_NAME, "db_popup")).text)
+                        ingredients[ingredients_name]=ingredients_amt
+                    #ingredient creation
+                    ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
+            print(ingredientlst)
+            
+        
         
 scraper=craftingGrabber() 
 scraper.ffxivScraper("https://na.finalfantasyxiv.com/lodestone/playguide/db/recipe/?page=205","db-table__txt--detail_link")
