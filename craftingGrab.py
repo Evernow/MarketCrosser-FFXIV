@@ -10,6 +10,8 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.options import ArgOptions
 from selenium.webdriver.firefox.options import Options
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchAttributeException
 import json
 import time
 class craftingGrabber:
@@ -73,7 +75,11 @@ class craftingGrabber:
             print(counter, "DB pages scanned", end='\r')
         #  this rotates thru and assigns the href value to all the functions(hyperlinks)
             for s in range(len(DB)):
+              try:
                 self.links.append(DB[s].get_attribute("href"))
+              except NoSuchAttributeException:
+                print("Note: one or more items did not contain a hyperlink \n and will thus be omitted")
+                
             #clicks the next page if there is one
             if(nextprev!=last):
                 tonext=driver.find_element(By.CLASS_NAME, "next")
