@@ -188,7 +188,7 @@ class craftingGrabber:
                 else:
                   ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
               except NoSuchElementException:
-                ingredientlst="NULL"
+                ingredientlst[name]="NULL"
 #code for fixing errors in retrieval
       dummy=self.errvisited
       countse=0
@@ -297,7 +297,7 @@ class craftingGrabber:
                       else:
                         ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
                     except NoSuchElementException:
-                      ingredientlst="NULL"  
+                      ingredientlst[name]="NULL"  
     #saves the official file 
       with open("Ffxivcrafting.json", "w+") as outfile:
         json.dump(ingredientlst, outfile, indent = 6)    
