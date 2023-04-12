@@ -1,17 +1,19 @@
 #the purpose of this class is to provide a object 
-# that will scrape the web 
+# that will naturally scrape the officially ffiv website  
+# to create a structured json based database
 # for crafting recipies with cross-refrencing sources
 # will return a json
 # enabled by default
+# FIREFOX IS A MANDATORY DEPENDENCY!!!! 
+# Use of other webdrivers can potentially cause instabilities or undefined behavior. Do so at your own risk
 
-import bs4
-import multiprocessing
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.options import ArgOptions
 from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoSuchAttributeException
+from selenium.common.exceptions import StaleElementReferenceException
 import json
 import time
 class craftingGrabber:
@@ -24,28 +26,23 @@ class craftingGrabber:
     #sanity checking variables
         #list of the hyperlinks of the items that were unsuccesfully visited
         self.errvisited=[]
-        
-     
+    #options to use when creating a new instance of a webdriver
+        #this should stabilize behaviors across operating systems
+        self.options = Options()
+        self.options.add_argument('--headless')
+        self.options.set_preference("general.useragent.override", "userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0")
 
     
-        
-    def materials():
-        exit
     
-    
-    #lets you create a webscraper given specific key terms, and urls. 
-    #it can filter out some data but more will have to be filtered manually at a later date
-    #xpath is optional but is highly recommended it exists as a backup for the id field check
+    #lets you create a ffxiv webscraper given specific db location, and urls. 
     #they should all be strings
     #the reason for using a method is 
     #in the hopes of maintaining expandability in case of changes to the official website
     def ffxivItemHyperlinkScraper(self,url,className):
         #initialconnect is used to count the while loop times it took to connect
         initialconnect=True
-        options = Options()
-        options.add_argument('--headless')
-        options.set_preference("general.useragent.override", "userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0")
-        driver = webdriver.Firefox(options=options)
+        
+        driver = webdriver.Firefox(options=self.options)
         driver.get(url)
         counter=0
         
@@ -93,10 +90,7 @@ class craftingGrabber:
         return(self.links)
     
     def ffxivScraper(self,url,className):
-      options = Options()
-      options.add_argument('--headless')
-      options.set_preference("general.useragent.override", "userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0")
-      driver = webdriver.Firefox(options=options)
+      driver = webdriver.Firefox(options=self.options)
       driver.get(url)
       ingredientlst={}
       errorchk=True
@@ -125,6 +119,11 @@ class craftingGrabber:
                 name=namex.text
               except NoSuchElementException:
                 name="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
+                continue
               
               #name of the job required to craft
               try:
@@ -132,6 +131,11 @@ class craftingGrabber:
                 job=jobx.text
               except NoSuchElementException:
                 job="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
+                continue
 
               #catagory of the item
               try: 
@@ -139,6 +143,11 @@ class craftingGrabber:
                 category=categoryx.text
               except NoSuchElementException:
                 category="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
+                continue
 
               #sorts through strings to find different stats from crafting that can be used for sorting
               try:
@@ -146,6 +155,12 @@ class craftingGrabber:
                 stuff=stuffx.text
               except NoSuchElementException:
                 stuff="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
+                continue
+                
 
               #length is one extra to account for the space
               try:
@@ -160,9 +175,11 @@ class craftingGrabber:
                 #turns them into ints
                 diff=int(diff)
                 totalCrafted=int(totalCrafted)
-              except NoSuchElementException:
-                diff="NULL"
-                totalCrafted="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
+                continue
                 
               #returns the level required to craft
               try:
@@ -171,6 +188,10 @@ class craftingGrabber:
                 level=level[3:]
               except NoSuchElementException:
                 level="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
               
               #dict of ingredients and the amount of them required
               ingredients={}
@@ -195,6 +216,10 @@ class craftingGrabber:
                   ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
               except NoSuchElementException:
                 ingredientlst[name]="NULL"
+              except StaleElementReferenceException:
+                self.errvisited.append(vars)
+                errorchk=False
+                counterr=counterr+1
 #code for fixing errors in retrieval
       dummy=self.errvisited
       countse=0
@@ -234,6 +259,11 @@ class craftingGrabber:
                       name=namex.text
                     except NoSuchElementException:
                       name="NULL"
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
                     
                     #name of the job required to craft
                     try:
@@ -241,6 +271,11 @@ class craftingGrabber:
                       job=jobx.text
                     except NoSuchElementException:
                       job="NULL"
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
 
                     #catagory of the item
                     try: 
@@ -248,6 +283,11 @@ class craftingGrabber:
                       category=categoryx.text
                     except NoSuchElementException:
                       category="NULL"
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
 
                     #sorts through strings to find different stats from crafting that can be used for sorting
                     try:
@@ -255,6 +295,11 @@ class craftingGrabber:
                       stuff=stuffx.text
                     except NoSuchElementException:
                       stuff="NULL"
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
 
                     #length is one extra to account for the space
                     try:
@@ -269,9 +314,11 @@ class craftingGrabber:
                       #turns them into ints
                       diff=int(diff)
                       totalCrafted=int(totalCrafted)
-                    except NoSuchElementException:
-                      diff="NULL"
-                      totalCrafted="NULL"
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
                       
                     #returns the level required to craft
                     try:
@@ -280,7 +327,12 @@ class craftingGrabber:
                       level=level[3:]
                     except NoSuchElementException:
                       level="NULL"
-                    
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
+                      
                     #dict of ingredients and the amount of them required
                     ingredients={}
                     #name of ingredients and amount of ingredients in a list
@@ -304,6 +356,12 @@ class craftingGrabber:
                         ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
                     except NoSuchElementException:
                       ingredientlst[name]="NULL"  
+                    except StaleElementReferenceException:
+                      self.errvisited.append(vars)
+                      errorchk=False
+                      counterr=counterr+1
+                      continue
+                      
     #saves the official file 
       with open("Ffxivcrafting.json", "w+") as outfile:
         json.dump(ingredientlst, outfile, indent = 6)    
