@@ -128,7 +128,7 @@ class craftingGrabber:
               #name of the job required to craft
               try:
                 jobx=driver.find_element(By.CLASS_NAME,"db-view__item__text__job_name")
-                job=jobx.text
+                job=[jobx.text]
               except NoSuchElementException:
                 job="NULL"
               except StaleElementReferenceException:
@@ -209,11 +209,14 @@ class craftingGrabber:
                     ingredients[ingredients_name]=ingredients_amt
                     
                 #ingredient creation as well as duplication prevention
-                if name in ingredientlst.values():
-                  ingredientlst[name]["Job"]=ingredientlst[name]["Job"]+", "+job
+                if name in ingredientlst:
+                  ingredientlst[name]["Job"]=ingredientlst[name]["Job"] +job
+                   #the other crafters recipie will be added as another list 
+                  ingredientlst[name]["Ingredients"]=ingredientlst[name]["Ingredients"] + [ingredients]
+
 
                 else:
-                  ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
+                  ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":[ingredients]}
               except NoSuchElementException:
                 ingredientlst[name]="NULL"
               except StaleElementReferenceException:
@@ -268,7 +271,7 @@ class craftingGrabber:
                     #name of the job required to craft
                     try:
                       jobx=driver.find_element(By.CLASS_NAME,"db-view__item__text__job_name")
-                      job=jobx.text
+                      job=[jobx.text]
                     except NoSuchElementException:
                       job="NULL"
                     except StaleElementReferenceException:
@@ -338,22 +341,25 @@ class craftingGrabber:
                     #name of ingredients and amount of ingredients in a list
                     ingredients_name=""
                     ingredients_amt=0
-                    #note this containes both the name and the number of items we need to parse thru these and assign them
+                    #note this containes both the name and the number of items, we need to parse thru these and assign them
                     try:
                       ingredientsx=driver.find_elements(By.CLASS_NAME,"db-view__data__reward__item__name")
-                        #filter and assigns peices of ingredientsx
-                
+                      
+                        #filter and assigns peices of ingredientsx to ingredients
                       for ing in ingredientsx:
                         ingredients_amt=((ing.find_element(By.CLASS_NAME, "db-view__item_num")).text)
                         ingredients_name=((ing.find_element(By.CLASS_NAME, "db_popup")).text)
                         ingredients[ingredients_name]=ingredients_amt
                     
-                      #ingredient creation as well as duplication prevention
-                      if name in ingredientlst.values():
-                        ingredientlst[name]["Job"]=ingredientlst[name]["Job"]+", "+job
+                        #ingredient creation as well as duplication prevention
+                      if name in ingredientlst:
+                        #in the case of duplicate items the other crafter will be added to the other
+                       ingredientlst[name]["Job"]=ingredientlst[name]["Job"] + job
+                        #the other crafters recipie will be added as another list 
+                       ingredientlst[name]["Ingredients"]=ingredientlst[name]["Ingredients"] + [ingredients]
 
                       else:
-                        ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":ingredients}
+                        ingredientlst[name]={"Job":job, "Category":category,"Level":level, "Difficulty":diff, "Amount from craft":totalCrafted,"Ingredients":[ingredients]}
                     except NoSuchElementException:
                       ingredientlst[name]="NULL"  
                     except StaleElementReferenceException:
