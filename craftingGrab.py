@@ -3,6 +3,7 @@
 # to create a structured json based dictionary
 # FIREFOX IS A MANDATORY DEPENDENCY!!!! 
 # Use of other webdrivers can potentially cause instabilities or undefined behavior. Do so at your own risk
+# Tested for use under Linux and Windows, untested on MACOS
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
