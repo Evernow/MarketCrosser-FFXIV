@@ -1,9 +1,6 @@
 #the purpose of this class is to provide a object 
-# that will naturally scrape the officially ffiv website  
-# to create a structured json based database
-# for crafting recipies with cross-refrencing sources
-# will return a json
-# enabled by default
+# that will naturally scrape the officially ffxiv website  
+# to create a structured json based dictionary
 # FIREFOX IS A MANDATORY DEPENDENCY!!!! 
 # Use of other webdrivers can potentially cause instabilities or undefined behavior. Do so at your own risk
 
