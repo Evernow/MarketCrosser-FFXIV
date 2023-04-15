@@ -1,4 +1,4 @@
-#the purpose of this class is to provide a object 
+# the purpose of this class is to provide a object 
 # that will naturally scrape the officially ffxiv website  
 # to create a structured json based dictionary
 # FIREFOX IS A MANDATORY DEPENDENCY!!!! 
@@ -14,10 +14,13 @@ from selenium.common.exceptions import NoSuchAttributeException
 from selenium.common.exceptions import StaleElementReferenceException
 import json
 import time
-class craftingGrabber:
-    def __init__(self):
+
+class ffxiv_grabber:
+    def __init__(self, Gather_Url, Craft_Url):
 #standard vars
-    #dictionary of items 
+        self.gather_url=Gather_Url
+        self.craft_url=Craft_Url
+      #dictionary of items 
         self.crecipie={}
         #simple list of the hyperlinks of items to visit
         self.links =[]
@@ -87,7 +90,8 @@ class craftingGrabber:
         print("\n")
         return(self.links)
     
-    def ffxivScraper(self,url,className):
+    def ffxivCraftScraper(self,className):
+      url=self.craft_url
       driver = webdriver.Firefox(options=self.options)
       driver.get(url)
       ingredientlst={}
@@ -369,7 +373,93 @@ class craftingGrabber:
     #saves the official file 
       with open("Ffxivcrafting.json", "w+") as outfile:
         json.dump(ingredientlst, outfile, indent = 6)    
+    
+    
+    def ffxivGatherScraper(self,className):
+      #gets the previously set gathering url
+      url=self.gather_url  
+      driver = webdriver.Firefox(options=self.options)
+      driver.get(url)
+      errorchk=True
+      countse=0
+      counterr=0
+      linklist=self.ffxivItemHyperlinkScraper(url,className)
+      
+      for vars in linklist:
+        try:
+            driver.get(vars)
+            errorchk=True
+            countse=countse+1
+        except:
+            print("there is some issue with connecting to one or more of the items we will retry those missing in 1hr")
+            print("the url that failed is:", vars, "\n")
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+        print(countse," items have been scanned out of ",len(linklist)," with ", counterr, " errors ",  end='\r')
+        #name of the job required to craft
+        if errorchk:
+          try:
+            jobx=driver.find_element(By.CLASS_NAME,"db-view__item__text__job_name")
+            job=[jobx.text]
+          except NoSuchElementException:
+            job="NULL"
+          except StaleElementReferenceException:
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+            continue
+          #get the name of the item to gather
+          try:
+            namex=driver.find_element(By.CLASS_NAME,"db-view__item__text__name")
+            name=namex.text
+          except NoSuchElementException:
+            name="NULL"
+          except StaleElementReferenceException:
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+            continue
+          try: 
+            categoryx=driver.find_element(By.CLASS_NAME,"db-view__gathering__text__category")
+            category=categoryx.text
+          except NoSuchElementException:
+            category="NULL"
+          except StaleElementReferenceException:
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+            continue
+          try:
+            Glocationx=driver.find_element(By.CLASS_NAME,"db-view__gathering__area")
+            Glocation=Glocationx.text
+          except NoSuchElementException:
+            Glocation="NULL"
+          except StaleElementReferenceException:
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+            continue
+          try:
+            locationx=driver.find_element(By.CLASS_NAME,"db-view__gathering__point")
+            location=locationx.text
+          except NoSuchElementException:
+            location="NULL"
+          except StaleElementReferenceException:
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+            continue
+          try:
+            Llocationx=driver.find_element(By.CLASS_NAME,"db-view__gathering__area")
+            location=Llocationx.text
+          except NoSuchElementException:
+            location="NULL"
+          except StaleElementReferenceException:
+            self.errvisited.append(vars)
+            errorchk=False
+            counterr=counterr+1
+            continue
         
-        
-scraper=craftingGrabber() 
-scraper.ffxivScraper("https://na.finalfantasyxiv.com/lodestone/playguide/db/recipe/?page=1","db-table__txt--detail_link")
+scraper=ffxiv_grabber("https://na.finalfantasyxiv.com/lodestone/playguide/db/recipe/?page=1", "https://na.finalfantasyxiv.com/lodestone/playguide/db/gathering/?page=1") 
+scraper.ffxivCraftScraper("db-table__txt--detail_link")
