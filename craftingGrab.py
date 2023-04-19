@@ -573,16 +573,16 @@ class ffxiv_grabber:
         print("you must supply a list of Item ID's\n run one of the item Sorters first")
       for vars in listofID:
         collectableItemAttr={}
-        try:
-          flood={"id":str(vars),"type":"item","lang":"en","version":"3"}
-          itemx=requests.get(self.GARLANDAPI, params=flood)
-          item=itemx.text
-          collectableItemAttr[vars]=item
-          print("conf1")
+        #try:
+        flood={"id":str(vars),"type":"item","lang":"en","version":"3"}
+        itemx=requests.get(self.GARLANDAPI, params=flood)
+        item=itemx.json()
+        collectableItemAttr[vars]=item
+        print("conf1")
       
           
-        except:
-          print("an error occurred while retrieving information for ", vars)
+        #except:
+        print("an error occurred while retrieving information for ", vars)
       with open("collectableItemAttr.json", "w+") as outfile:
         json.dump(collectableItemAttr, outfile, indent = 6)    
       
