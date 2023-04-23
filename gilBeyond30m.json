@@ -132,7 +132,7 @@
       "(32858, False)": {
             "AveragePriceSiren": 33252595.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 34915225,
+            "CurrentPriceSiren": 34915226,
             "LowestPrice": 31421260,
             "LowestPriceServer": "Zalera",
             "SalesInLast24Hours": 0,
@@ -152,7 +152,7 @@
       "(36005, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": 52377360,
+            "CurrentPriceSiren": 52324857,
             "LowestPrice": 43050000,
             "LowestPriceServer": "Gilgamesh",
             "SalesInLast24Hours": 0,
@@ -160,14 +160,14 @@
             "SalesInLastMonth": 0
       },
       "(36340, False)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
+            "AveragePriceSiren": 1000.0,
+            "AverageQuantitySiren": 1,
             "CurrentPriceSiren": 52174920,
             "LowestPrice": 45150000,
             "LowestPriceServer": "Hyperion",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 1
+            "SalesInLast24Hours": 1,
+            "SalesInLastWeek": 1,
+            "SalesInLastMonth": 2
       },
       "(3747, True)": {
             "AveragePriceSiren": null,
@@ -212,7 +212,7 @@
       "(39493, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": null,
+            "CurrentPriceSiren": 62999999,
             "LowestPrice": 57131550,
             "LowestPriceServer": "Mateus",
             "SalesInLast24Hours": 0,
@@ -222,7 +222,7 @@
       "(39494, False)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
-            "CurrentPriceSiren": null,
+            "CurrentPriceSiren": 68250000,
             "LowestPrice": 57749999,
             "LowestPriceServer": "Hyperion",
             "SalesInLast24Hours": 0,
@@ -495,6 +495,16 @@
             "CurrentPriceSiren": null,
             "LowestPrice": 1049999999,
             "LowestPriceServer": "Leviathan",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 0
+      },
+      "(8370, False)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": null,
+            "LowestPrice": 1049999999,
+            "LowestPriceServer": "Mateus",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
