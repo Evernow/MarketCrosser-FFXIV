@@ -16,6 +16,7 @@ from multipledispatch import dispatch
 import json
 import time
 import requests
+import requests.exceptions
 import traceback
 
 class ffxiv_grabber:
@@ -596,8 +597,11 @@ class ffxiv_grabber:
         
         
     #goes to the garland api to make a json of all the ways to obtain an item
-    #NOTE will run an update for IDDB 
-    def garlandResourceObtain(self,listofID=[]):
+    #NOTE will run an update for IDDB
+    #NOTE redo will only work on ID's that actually exist and will not work for HTTP errors
+    # that your supplied 
+    def garlandResourceObtain(self,listofID=[], redo=True):
+      errid=[]
       collectableItemAttr={}
       FAIL_DICT={}
       if(listofID==[]):
@@ -605,22 +609,54 @@ class ffxiv_grabber:
       for vars in listofID:
         if vars!=None:
           try:
-            
             flood={"id":str(vars),"type":"item","lang":"en","version":"3"}
             itemx=requests.get(self.GARLANDAPI, params=flood)
             item=itemx.json()
             collectableItemAttr[vars]=item
             print("match for "+str(vars)+" found!",end='\r')
-        
-            
+          #will usually only be thrown if there is an issue with the input
+          except requests.HTTPError as Issue:
+            shout=("The item ID ", vars, " does not exist in the garland database or has changed")
+            with open("FAILURELOG_GARLAND.txt", "a") as outfile:
+              outfile.write(Issue, "\n")
+              outfile.write(shout, "\n")
           except Exception as Issue:
-            shout="an error occurred while retrieving information for ", vars
+            shout=("an error occurred while retrieving information for ", vars, " in garland data")
+            #will append variable to the list of variables to be redone
+            errid.append(vars)
             print(shout)
             print("you can find the id's of the values that failed in the folder FAILURELOG_GARLAND.txt")
             #outputs error into error log file for garlemald
             with open("FAILURELOG_GARLAND.txt", "a") as outfile:
-              outfile.write(shout+"\n")
-              outfile.write(Issue)
+              outfile.write(Issue, "\n")
+              outfile.write(shout, "\n")
+      while redo==True and errid!=[]:
+        time.sleep(3600)
+        for fix in errid:
+          try:
+            flood={"id":str(fix),"type":"item","lang":"en","version":"3"}
+            itemx=requests.get(self.GARLANDAPI, params=flood)
+            item=itemx.json()
+            collectableItemAttr[fix]=item
+            print("match for "+str(fix)+" found!",end='\r')
+          except requests.HTTPError as Issue:
+            shout=("The item ID ", fix, " does not exist in the garland database or has changed")
+            with open("FAILURELOG_GARLAND.txt", "a") as outfile:
+              outfile.write(Issue, "\n")
+              outfile.write(shout, "\n")
+          except Exception as Issue:
+            shout=("an error occurred while retrieving information for ", fix, " in garland data")
+            #identifies if there is a need to redo the code
+            needToRedo=True
+            print(shout)
+            print("you can find the id's of the values that failed in the folder FAILURELOG_GARLAND.txt")
+            #outputs error into error log file for garlemald (note this is a different log file)
+            # (it is the continuous version housing repeat errors)
+            with open("FAILURELOG_GARLAND_CONT.txt", "a") as outfile:
+              outfile.write(Issue, "\n")
+              outfile.write(shout, "\n")
+          else:
+            errid.remove(fix)
       with open("collectableItemAttr.json", "w+") as outfile:
         json.dump(collectableItemAttr, outfile, indent = 6)    
       
@@ -673,7 +709,6 @@ class ffxiv_grabber:
     #sorts through the dictionary supplied by the user
       for outer in itemlist:
         found=False    
-        
     #sorts through the dictonary of ffxiv values and assigns them if a match
         for vars in dict(data):
           if(str((data[vars]).get("en")).lower()==str(outer).lower()):

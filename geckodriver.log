@@ -542,3 +542,404 @@ Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
 Exiting due to channel error.
+1681190539262	geckodriver	INFO	Listening on 127.0.0.1:63440
+1681190542378	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "634 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileUxOZwy"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681190542842	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1681190542848	Marionette	INFO	Listening on port 63452
+Read port: 63452
+WebDriver BiDi listening on ws://127.0.0.1:63441
+1681190543011	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileUxOZwy\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:63441/devtools/browser/cb307a1c-c993-42a6-835d-914eaaca39cd
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+1681192593132	geckodriver	INFO	Listening on 127.0.0.1:50833
+1681192596168	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "508 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofilecAPxYm"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681192596379	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1681192596382	Marionette	INFO	Listening on port 50843
+Read port: 50843
+WebDriver BiDi listening on ws://127.0.0.1:50834
+1681192596457	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofilecAPxYm\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:50834/devtools/browser/f198d913-5ae1-4288-9e68-ccc0f2ca9bd2
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+s session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileTuUvjQ\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:50910/devtools/browser/a3bfc3cc-0aa0-4835-8c0d-add6fe76a44e
+1681200921290	geckodriver	INFO	Listening on 127.0.0.1:64405
+1681200924293	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "644 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofilev07tvb"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681200924596	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1681200924600	Marionette	INFO	Listening on port 64416
+WebDriver BiDi listening on ws://127.0.0.1:64406
+Read port: 64416
+1681200924833	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofilev07tvb\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:64406/devtools/browser/fc698911-2074-493f-914a-fcbcfc62228b
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+myN"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681200931561	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1681200931565	Marionette	INFO	Listening on port 64491
+WebDriver BiDi listening on ws://127.0.0.1:64483
+Read port: 64491
+1681200931758	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofile2jemyN\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:64483/devtools/browser/edcfc70a-1c55-420f-a4b2-2861c73bd025
+1681868523349	geckodriver	INFO	Listening on 127.0.0.1:60315
+1681868526531	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "603 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileJuOpQ4"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681868527127	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1681868527136	Marionette	INFO	Listening on port 60334
+Read port: 60334
+WebDriver BiDi listening on ws://127.0.0.1:60316
+1681868527351	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileJuOpQ4\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:60316/devtools/browser/998d4216-8ca2-4b4b-8e6d-638fcc9ab7fb
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+tte" "--headless" "--remote-debugging-port" "603 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofilef9w5Mr"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1681868535682	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1681868535687	Marionette	INFO	Listening on port 60398
+WebDriver BiDi listening on ws://127.0.0.1:60381
+Read port: 60398
+1681868535960	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofilef9w5Mr\\search.json.mozlz4", (void 0)))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:60381/devtools/browser/5cd42e10-6492-4543-8cbb-b4e2c4201114
+1682041970593	geckodriver	INFO	Listening on 127.0.0.1:55368
+1682041973634	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "553 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileZ9W1eR"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682041974032	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682041974039	Marionette	INFO	Listening on port 55379
+Read port: 55379
+WebDriver BiDi listening on ws://127.0.0.1:55369
+1682041974180	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileZ9W1eR\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55369/devtools/browser/2795b8a3-df0b-40f2-b975-cfcd2e3be464
+1682041977820	geckodriver	INFO	Listening on 127.0.0.1:55441
+1682041980853	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "554 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileljUwQN"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682041981113	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682041981116	Marionette	INFO	Listening on port 55450
+WebDriver BiDi listening on ws://127.0.0.1:55442
+Read port: 55450
+1682041981268	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileljUwQN\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:55442/devtools/browser/221cc9bd-4695-4079-8d1f-fb2d39ad175f
+1682646293706	geckodriver	INFO	Listening on 127.0.0.1:59276
+1682646296747	mozrunner::runner	INFO	Running command: "C:\\Program Files\\Mozilla Firefox\\firefox.exe" "--marionette" "--headless" "--remote-debugging-port" "592 ... " "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileyFOot1"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1682646297190	Marionette	INFO	Marionette enabled
+Dynamically enable window occlusion 0
+1682646297198	Marionette	INFO	Listening on port 59295
+WebDriver BiDi listening on ws://127.0.0.1:59277
+Read port: 59295
+1682646297493	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at C:\\Users\\Jasper\\AppData\\Local\\Temp\\rust_mozprofileyFOot1\\search.json.mozlz4", (void 0)))
+[ERROR glean_core] Error setting metrics feature config: Json(Error("EOF while parsing a value", line: 1, column: 0))
+console.error: ({})
+DevTools listening on ws://127.0.0.1:59277/devtools/browser/f55d2a0c-afef-494b-b87f-eb00a816e1ae
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+1682649972693	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1682649973390	Marionette	WARN	Ignoring event 'pageshow' because documconsole.error: Region.sys.mjs: "Error fetching region" (new TypeError("NetworkError when attempting to fetch resource.", ""))
+console.error: Region.sys.mjs: "Failed to fetch region" (new Error("NO_RESULT", "resource://gre/modules/Region.sys.mjs", 414))
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+te	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649973802	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649973854	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649973902	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649973958	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974041	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974118	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974196	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974256	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974354	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974432	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974491	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974540	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974577	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974628	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974664	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974703	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974740	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974779	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974827	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974864	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974911	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974951	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649974987	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975024	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975064	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975101	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975140	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975184	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975226	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975272	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975306	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975341	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975376	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975410	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975447	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975484	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975517	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975553	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975588	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975627	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975659	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975692	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975725	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975801	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975846	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975891	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975927	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975964	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649975997	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976031	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976068	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976101	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976133	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976167	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976199	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976233	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976266	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976298	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976329	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976362	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976406	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976457	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976493	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976527	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976559	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976590	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976621	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976652	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976685	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976718	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976750	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976782	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976819	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976850	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976882	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976913	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976949	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649976984	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977015	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977049	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977081	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977117	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977162	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977202	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977239	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977283	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977355	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977425	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977474	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977516	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977558	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977596	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977635	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977673	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977705	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977746	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977783	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977824	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977870	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977907	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649977944	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978025	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978084	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978129	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978167	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978203	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978240	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978274	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978325	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978373	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978405	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978437	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978474	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978510	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978543	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978574	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978606	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978637	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978669	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978701	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978735	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978768	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978802	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978844	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978879	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978913	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978947	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649978981	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649979024	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649979062	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682649979152	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811197477	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811198007	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811198186	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811198396	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811198737	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811199046	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811199467	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811199631	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811199802	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811199880	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811200065	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811200391	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811200611	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811200785	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811202594	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811202661	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811202726	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811202784	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811202863	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811202983	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203065	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203152	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203219	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203276	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203332	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203379	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203435	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203487	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203543	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203597	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203647	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203701	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203763	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203820	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203897	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811203970	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204034	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204097	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204145	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204198	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204253	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204304	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204363	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204419	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204480	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204529	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204602	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204663	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204732	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204784	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204829	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204878	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204922	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811204981	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205029	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205076	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205125	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205179	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205229	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205287	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205352	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205394	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205439	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205494	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205532	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205575	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205616	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205656	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205711	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205766	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205810	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205850	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205900	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205938	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+1682811205982	Marionette	WARN	Ignoring event 'pageshow' because document has an invalid readyState of 'interactive'.
+JavaScript error: , line 0: NS_ERROR_NOT_AVAILABLE
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
+JavaScript error: resource://gre/actors/ContentMetaChild.jsm, line 183: InvalidStateError: JSWindowActorChild.sendAsyncMessage: JSWindowActorChild cannot send at the moment
