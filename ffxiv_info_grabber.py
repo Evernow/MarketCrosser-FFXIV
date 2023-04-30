@@ -12,7 +12,6 @@ from selenium.webdriver.firefox.options import Options
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoSuchAttributeException
 from selenium.common.exceptions import StaleElementReferenceException
-from multipledispatch import dispatch 
 import json
 import time
 import requests
@@ -525,7 +524,6 @@ class ffxiv_grabber:
                       dummy=self.errvisited
                       countse=countse+1
                       
-                      
                   except:
                       print("there is some issue with connecting to one or more of the items we will retry those missing in 1hr")
                       print("the url that failed is:", vars)
@@ -660,64 +658,47 @@ class ffxiv_grabber:
       with open("collectableItemAttr.json", "w+") as outfile:
         json.dump(collectableItemAttr, outfile, indent = 6)    
       
-      
-    
-    #sorts through a dict of items with items being the topmost keys returns a list of item id's
-    #should run updateIDDB first
-    #will clean the list by default
-    #NOTE cleaning a list will remove its 1:1 comparison to the supplied material
-    @dispatch(dict, cleanAndRemoveDuplicates=bool)
-    def itemSorter(itemdict, cleanAndRemoveDuplicates=True):
-      outputlist=[]
-      #outputlist cleansed of duplicates
-      cleanOutputlist=[]
-      with open('itemid.json') as json_file:
-          data = json.load(json_file)
-    #sorts through the dictionary supplied by the user
-      for outer in dict(itemdict):
-        found=False   
-    #sorts through the dictonary of ffxiv values
-        if outer!=" " and outer!='' and outer!="" and outer!=None:
-          for vars in dict(data):
-            #print(str((data[vars]).get("en")))
-            if(str((data[vars]).get("en")).lower()==str(outer).lower()):
-              found=True
-              print("found "+str(vars), end='\r')
-              outputlist.append(vars)
-      #if no match was found will return "NULL"
-          if(found==False):
-            outputlist.append("NULL")
-      #cleans the list of duplicates
-      if cleanAndRemoveDuplicates==True:
-        [cleanOutputlist.append(cleaned) for cleaned in outputlist if cleaned not in cleanOutputlist and cleaned!="NULL"]
-        return(cleanOutputlist)
-      else:
-        return(outputlist)
-      
         
     
-    #sorts through a list of item names and transforms them to a list of their item id's
+    #sorts through a list or dict of item names and transforms them to a list of their item id's
     #should run updateIDDB first
     #will clean a list by default
     #NOTE cleaning a list will remove its 1:1 comparison to the supplied material
-    @dispatch(list, cleanAndRemoveDuplicates=bool)
-    def itemSorter(itemlist, cleanAndRemoveDuplicates=True):
+    def itemSorter(items, cleanAndRemoveDuplicates=True):
       outputlist=[]
       cleanOutputlist=[]
       with open('itemid.json') as json_file:
         data = json.load(json_file)
     #sorts through the dictionary supplied by the user
-      for outer in itemlist:
-        found=False    
-    #sorts through the dictonary of ffxiv values and assigns them if a match
-        for vars in dict(data):
-          if(str((data[vars]).get("en")).lower()==str(outer).lower()):
-            found=True
-            print("found "+vars, end='\r')
-            outputlist.append(vars)
-    #if no match was found will return "NULL"
-        if(found==False):
-          outputlist.append("NULL")
+      if isinstance(items, list):
+        for outer in items:
+          found=False    
+      #filters out supplied blank data
+          if outer!=" " and outer!='' and outer!="" and outer!=None and outer!="NULL":
+      #sorts through the dictonary of ffxiv values and assigns them if a match
+            for vars in dict(data):
+              if(str((data[vars]).get("en")).lower()==str(outer).lower()):
+                found=True
+                print("found "+vars, end='\r')
+                outputlist.append(vars)
+      #if no match was found will return "NULL"
+            if(found==False):
+              outputlist.append("NULL")
+      elif isinstance(items, dict):
+        #sorts through the dictionary supplied by the user
+        for outer in dict(items):
+          found=False   
+          #Filters out bad data
+          if outer!=" " and outer!='' and outer!="" and outer!=None:
+            #sorts through the dictonary of ffxiv values
+            for vars in dict(data):
+              if(str((data[vars]).get("en")).lower()==str(outer).lower()):
+                found=True
+                print("found "+str(vars), end='\r')
+                outputlist.append(vars)
+        #if no match was found will return "NULL"
+            if(found==False):
+              outputlist.append("NULL")
     #gets rid of repeat values
       if cleanAndRemoveDuplicates==True:
         [cleanOutputlist.append(cleaned) for cleaned in outputlist if cleaned not in cleanOutputlist and cleaned!="NULL"]
