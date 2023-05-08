@@ -37,18 +37,17 @@ class ffxiv_grabber:
     #options to use when creating a new instance of a webdriver
         #this should stabilize behaviors across operating systems
         self.options = Options()
-        self.options.add_argument('--headless')
+        #Enables Hardware Acceleration
+        self.options.set_preference("layers.acceleration.force-enabled",True)
+        self.options.add_argument('-headless')
         self.options.set_preference("general.useragent.override", "userAgent=Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:109.0) Gecko/20100101 Firefox/111.0")
           
-        
-      
     def updateIDDB(self):
       request=requests.get(self.ITEMLST)
       request=request.json()
       with open("itemid.json", "w+") as outfile:
         json.dump(request, outfile, indent =6)
-    
-    
+        
     #lets you create a ffxiv webscraper for surface object hyperlinks 
     # on the official webpage given a specific db location, and url. 
     #they should all be strings
@@ -522,8 +521,7 @@ class ffxiv_grabber:
                       errorchk=True
                       self.errvisited.remove(vars)
                       dummy=self.errvisited
-                      countse=countse+1
-                      
+                      countse=countse+1   
                   except:
                       print("there is some issue with connecting to one or more of the items we will retry those missing in 1hr")
                       print("the url that failed is:", vars)
