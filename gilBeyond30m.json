@@ -79,16 +79,6 @@
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
       },
-      "(18706, False)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
-            "CurrentPriceSiren": null,
-            "LowestPrice": 1049999999,
-            "LowestPriceServer": "Seraph",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 0
-      },
       "(23849, True)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
@@ -108,6 +98,16 @@
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
+      },
+      "(25660, False)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": null,
+            "LowestPrice": 1049999999,
+            "LowestPriceServer": "Famfrit",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 1
       },
       "(2642, True)": {
             "AveragePriceSiren": null,
@@ -164,7 +164,7 @@
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": 33072584,
             "LowestPrice": 31500000,
-            "LowestPriceServer": "Mateus",
+            "LowestPriceServer": "Behemoth",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 1
@@ -194,7 +194,7 @@
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": 53545249,
             "LowestPrice": 44100000,
-            "LowestPriceServer": "Behemoth",
+            "LowestPriceServer": "Exodus",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
@@ -202,8 +202,8 @@
       "(36340, False)": {
             "AveragePriceSiren": 49361154.333333336,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": null,
-            "LowestPrice": 44100000,
+            "CurrentPriceSiren": 52500000,
+            "LowestPrice": 46987500,
             "LowestPriceServer": "Famfrit",
             "SalesInLast24Hours": 2,
             "SalesInLastWeek": 3,
@@ -304,16 +304,6 @@
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": null,
             "LowestPrice": 52500000,
-            "LowestPriceServer": "Sargatanas",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 0
-      },
-      "(5412, False)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
-            "CurrentPriceSiren": null,
-            "LowestPrice": 1049999999,
             "LowestPriceServer": "Sargatanas",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
@@ -524,7 +514,7 @@
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": 51450000,
             "LowestPrice": 31499999,
-            "LowestPriceServer": "Seraph",
+            "LowestPriceServer": "Leviathan",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
