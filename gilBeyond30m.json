@@ -39,16 +39,6 @@
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
       },
-      "(23849, True)": {
-            "AveragePriceSiren": null,
-            "AverageQuantitySiren": null,
-            "CurrentPriceSiren": null,
-            "LowestPrice": 42000000,
-            "LowestPriceServer": "Coeurl",
-            "SalesInLast24Hours": 0,
-            "SalesInLastWeek": 0,
-            "SalesInLastMonth": 0
-      },
       "(23853, True)": {
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
@@ -75,6 +65,16 @@
             "CurrentPriceSiren": null,
             "LowestPrice": 73500000,
             "LowestPriceServer": "Coeurl",
+            "SalesInLast24Hours": 0,
+            "SalesInLastWeek": 0,
+            "SalesInLastMonth": 0
+      },
+      "(2821, False)": {
+            "AveragePriceSiren": null,
+            "AverageQuantitySiren": null,
+            "CurrentPriceSiren": null,
+            "LowestPrice": 92399994,
+            "LowestPriceServer": "Faerie",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
@@ -132,9 +132,9 @@
       "(32858, False)": {
             "AveragePriceSiren": 32000000.0,
             "AverageQuantitySiren": 1,
-            "CurrentPriceSiren": 33600000,
+            "CurrentPriceSiren": null,
             "LowestPrice": 31500000,
-            "LowestPriceServer": "Excalibur",
+            "LowestPriceServer": "Marilith",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 1,
             "SalesInLastMonth": 2
@@ -173,7 +173,7 @@
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": 65099999,
-            "LowestPrice": 55266750,
+            "LowestPrice": 55263158,
             "LowestPriceServer": "Jenova",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
@@ -183,8 +183,8 @@
             "AveragePriceSiren": null,
             "AverageQuantitySiren": null,
             "CurrentPriceSiren": 66150000,
-            "LowestPrice": 57750000,
-            "LowestPriceServer": "Mateus",
+            "LowestPrice": 59744974,
+            "LowestPriceServer": "Sargatanas",
             "SalesInLast24Hours": 0,
             "SalesInLastWeek": 0,
             "SalesInLastMonth": 0
